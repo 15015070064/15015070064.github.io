@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo-Next7主题优化</title>
+    <url>/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Windows</li>
+<li><input checked disabled type="checkbox"> MAC</li>
+<li><input checked disabled type="checkbox"> Linux</li>
+</ul>
+<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+<li><input checked disabled type="checkbox"> nodejs 10.10.0~</li>
+<li><input checked disabled type="checkbox"> Git~</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Windows10</li>
+<li>nodejs-12.15.0</li>
+<li>npm-6.134</li>
+<li>Git~</li>
+<li>NexT-7.7.2</li>
+</ul>
+<h1 id="Hexo基本配置"><a href="#Hexo基本配置" class="headerlink" title="Hexo基本配置"></a>Hexo基本配置</h1><blockquote>
+<p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录(theme)下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>为了描述方便，在以下说明中，将前者称为 <font color="#BF3EFF">站点配置文件</font>， 后者称为 <font color="Blue">主题配置文件</font>。</p>
+</blockquote>
+<p>修改<font color="#BF3EFF">站点配置文件</font></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 站点标题</span><br><span class="line">title: site</span><br><span class="line"># 站点副标题</span><br><span class="line">subtitle: &#39;site&#39;</span><br><span class="line"># 站点描述</span><br><span class="line">description:</span><br><span class="line"># 站点关键字，用于被搜索引擎所捕获</span><br><span class="line">keywords:</span><br><span class="line"># 作者名</span><br><span class="line">author: Lucas</span><br><span class="line"># 语言，默认是en，简体中文是zh-CN</span><br><span class="line">language: zh-CN</span><br><span class="line"># 这个是时区，默认是当前服务器的时区，不用填</span><br><span class="line">timezone: </span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">#绑定的域名，本地下可以填http:&#x2F;&#x2F;localhost:4000&#x2F;</span><br><span class="line">url: http:&#x2F;&#x2F;localhost:4000&#x2F;</span><br><span class="line">#默认根路径，指向实际的source</span><br><span class="line">root: &#x2F; </span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+<h1 id="修改NexT模式"><a href="#修改NexT模式" class="headerlink" title="修改NexT模式"></a>修改NexT模式</h1><p>next主题一共提供了四种不同的布局，只需要设置<font color="Blue">主题配置文件</font>下的scheme字段就可以了</p>
+<ul>
+<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
+<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
+<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+<li>Gemini - 双栏，类似Pisces<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces</span><br><span class="line">#scheme: Gemini</span><br><span class="line"></span><br><span class="line">#是否开启黑暗模式</span><br><span class="line"># Dark Mode</span><br><span class="line">darkmode: false</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="添加导航菜单"><a href="#添加导航菜单" class="headerlink" title="添加导航菜单"></a>添加导航菜单</h1><p>next默认菜单只有两项，分别为Home和Archives<br>设置<font color="Blue">主题配置文件</font>下的Menu字段增加菜单<br>其中，home代表主页，categories代表分类页，about代表关于页面，archives代表归档页，commonweal代表404页面（page not found时候显示的页面）。</p>
+<blockquote>
+<p>看看你需要哪个菜单就把哪个取消注释打开就行了；<br>关于后面的格式，以archives: /archives/ || archive为例：<br>|| 之前的/archives/表示标题“归档”，关于标题的格式可以去themes/next/languages/zh-Hans.yml中参考或修改<br>||之后的archive表示图标，可以去Font Awesome中查看或修改，Next主题所有的图标都来自Font Awesome。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home</span><br><span class="line">  #about: &#x2F;about&#x2F; || user</span><br><span class="line">  tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">  categories: &#x2F;categories&#x2F; || th</span><br><span class="line">  archives: &#x2F;archives&#x2F; || archive</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/1.png" alt></p>
+<h1 id="侧边栏设置"><a href="#侧边栏设置" class="headerlink" title="侧边栏设置"></a>侧边栏设置</h1><h2 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h2><p>打开 <font color="Blue">主题配置文件</font> 找到sidebar字段</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sidebar:</span><br><span class="line"># Sidebar Position - 侧栏位置（只对Pisces | Gemini两种风格有效）</span><br><span class="line">  position: left        &#x2F;&#x2F;靠左放置</span><br><span class="line">  #position: right      &#x2F;&#x2F;靠右放置</span><br><span class="line"></span><br><span class="line"># Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效）</span><br><span class="line">  #display: post        &#x2F;&#x2F;默认行为，在文章页面（拥有目录列表）时显示</span><br><span class="line">  display: always       &#x2F;&#x2F;在所有页面中都显示</span><br><span class="line">  #display: hide        &#x2F;&#x2F;在所有页面中都隐藏（可以手动展开）</span><br><span class="line">  #display: remove      &#x2F;&#x2F;完全移除</span><br><span class="line"></span><br><span class="line">  offset: 12            &#x2F;&#x2F;文章间距（只对Pisces | Gemini两种风格有效）</span><br><span class="line"></span><br><span class="line">  b2t: false            &#x2F;&#x2F;返回顶部按钮（只对Pisces | Gemini两种风格有效）</span><br><span class="line"></span><br><span class="line">  scrollpercent: true   &#x2F;&#x2F;返回顶部按钮的百分比</span><br></pre></td></tr></table></figure>
+
+<h2 id="社交图标设置"><a href="#社交图标设置" class="headerlink" title="社交图标设置"></a>社交图标设置</h2><p>打开 <font color="Blue">主题配置文件</font> 找到social字段<br>关于后面的格式，以 GitHub: <a href="https://github.com/15015070064" target="_blank" rel="noopener">https://github.com/15015070064</a> || github为例：<br>前面代表点击的超链接，后面代表图标后显示的文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;15015070064 || github</span><br><span class="line">  E-Mail: mailto:lucas.15015070064@gmail.com || envelope</span><br><span class="line">  #Weibo: https:&#x2F;&#x2F;weibo.com&#x2F;yourname || weibo</span><br><span class="line">  #Google: https:&#x2F;&#x2F;plus.google.com&#x2F;yourname || google</span><br><span class="line">  #Twitter: https:&#x2F;&#x2F;twitter.com&#x2F;yourname || twitter</span><br><span class="line">  #FB Page: https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname || facebook</span><br><span class="line">  #StackOverflow: https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname || stack-overflow</span><br><span class="line">  #YouTube: https:&#x2F;&#x2F;youtube.com&#x2F;yourname || youtube</span><br><span class="line">  #Instagram: https:&#x2F;&#x2F;instagram.com&#x2F;yourname || instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || skype</span><br><span class="line">  RSS: &#x2F;atom.xml || rss</span><br><span class="line">#社交图标配置</span><br><span class="line">social_icons:</span><br><span class="line">  #是否启用图标</span><br><span class="line">  enable: true</span><br><span class="line">  #只显示图标不显示文字</span><br><span class="line">  icons_only: false</span><br><span class="line">  transition: false</span><br></pre></td></tr></table></figure>
+
+<h3 id="RSS设置"><a href="#RSS设置" class="headerlink" title="RSS设置"></a>RSS设置</h3><p>rss比较特别，他是一个文件，而且要事先生成<br>1.安装rss插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd your-site-web</span><br><span class="line">$ npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<p>2.在<font color="#BF3EFF">站点配置文件</font>下添加下面代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br><span class="line">  content:</span><br><span class="line">  content_limit: 140</span><br><span class="line">  content_limit_delim: &quot; &quot;</span><br><span class="line">  order_by: -date</span><br><span class="line">  icon: icon.png</span><br></pre></td></tr></table></figure>
+<p>3.修改 <font color="Blue">主题配置文件</font> 的添加social图标</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  RSS: &#x2F;atom.xml || rss</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在 social: 下添加以上代码。在 Next v7.7.2 中将 RSS 设置在了 follow_me: 下，这个是在文章的结尾处显示 RSS，而且占地比较大，所以我不太喜欢这个位置，还是喜欢以前的 social: 这个位置，这样会显示在侧边栏里，而且占地很小。</p>
+</blockquote>
+<p>4.重新编译代码<br>hexo g会在博客目录下生成一个public文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>1.把头像图片放入themes/next/source/images下<br>2.修改<font color="Blue">主题配置文件</font>的avatar</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line">avatar:</span><br><span class="line">  # 头像图片路径</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.jpg</span><br><span class="line">  # 是否使用原型头像</span><br><span class="line">  rounded: false</span><br><span class="line">  # 鼠标指向头像时，头像是否旋转</span><br><span class="line">  rotated: false</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加页面"><a href="#添加页面" class="headerlink" title="添加页面"></a>添加页面</h1><h2 id="标签页，分类页，关于页面"><a href="#标签页，分类页，关于页面" class="headerlink" title="标签页，分类页，关于页面"></a>标签页，分类页，关于页面</h2><p>除了增加标签菜单外，还需要安装对应的插件才能显示标签页，不然点击菜单后会显示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cannot GET &#x2F;about&#x2F;</span><br><span class="line">Cannot GET &#x2F;tags&#x2F;</span><br><span class="line">Cannot GET &#x2F;categories&#x2F;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/3.png" alt><br>1.打开命令行，运行下面命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#进入博客目录</span></span><br><span class="line">$ <span class="built_in">cd</span> your_site_path</span><br><span class="line"><span class="comment">#分别运行</span></span><br><span class="line">$ hexo new page <span class="string">"about"</span></span><br><span class="line">INFO  Created: w:\blog\<span class="built_in">source</span>\about\index.md</span><br><span class="line">$ hexo new page <span class="string">"tags"</span></span><br><span class="line">INFO  Created: w:\blog\<span class="built_in">source</span>\tags\index.md</span><br><span class="line">$ hexo new page <span class="string">"categories"</span></span><br><span class="line">INFO  Created: w:\blog\<span class="built_in">source</span>\categories\index.md</span><br></pre></td></tr></table></figure>
+<p>以上三个命令会在博客根目录下的source文件夹下生成about，tags，categories文件夹<br>2.修改上述文件夹下的index.md<br>about:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: about</span><br><span class="line">date: 2020-04-1 19:16:17</span><br><span class="line">type: &quot;about&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>tags:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-04-1 19:16:18</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>categories:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-04-1 19:16:19</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>3.重新运行服务器就可以看见效果了<br><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/2.png" alt></p>
+<h2 id="404公益页面"><a href="#404公益页面" class="headerlink" title="404公益页面"></a>404公益页面</h2><p>1.首页要把导航菜单的404注释打开<br>2.新建一个页面</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#进入博客目录</span><br><span class="line">$ cd your_site_path</span><br><span class="line">#分别运行</span><br><span class="line">$ hexo new page &quot;404&quot;</span><br></pre></td></tr></table></figure>
+<p>3.进入yoursite\source\404目录，修改index.md，在下面任选一个公益代码放到插入位置，保存即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2020-04-01 12:46:11</span><br><span class="line">type: &quot;404&quot;</span><br><span class="line">---</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv&#x3D;&quot;content-type&quot; content&#x3D;&quot;text&#x2F;html;charset&#x3D;utf-8;&quot;&#x2F;&gt;</span><br><span class="line">  &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge,chrome&#x3D;1&quot; &#x2F;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;robots&quot; content&#x3D;&quot;all&quot; &#x2F;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;robots&quot; content&#x3D;&quot;index,follow&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;hybrid&#x2F;app&#x2F;404&#x2F;search_children.js&quot; charset&#x3D;&quot;utf-8&quot; homePageUrl&#x3D;&quot;&#x2F;&quot; homePageName&#x3D;&quot;回到我的主页&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>4.重启服务器，点击公益<br><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/10.png" alt><br><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/11.png" alt></p>
+<h1 id="开启进度条"><a href="#开启进度条" class="headerlink" title="开启进度条"></a>开启进度条</h1><p>修改<font color="Blue">主题配置文件</font>的pace</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pace:</span><br><span class="line">   #是否开启进度条</span><br><span class="line">  enable: ture</span><br><span class="line">  # Themes list:</span><br><span class="line">  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span><br><span class="line">  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span><br><span class="line">  #进度条样式</span><br><span class="line">  theme: minimal</span><br></pre></td></tr></table></figure>
+<p>可以更换theme来看不同的效果</p>
+<h1 id="烟花效果"><a href="#烟花效果" class="headerlink" title="烟花效果"></a>烟花效果</h1><p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/4.png" alt></p>
+<ol>
+<li>在yoursite\themes\next\source\js文件夹下新增一个文件fireworks.js，复制下面内容进文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;use strict&quot;;function updateCoords(e)&#123;pointerX&#x3D;(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY&#x3D;e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top&#125;function setParticuleDirection(e)&#123;var t&#x3D;anime.random(0,360)*Math.PI&#x2F;180,a&#x3D;anime.random(50,180),n&#x3D;[-1,1][anime.random(0,1)]*a;return&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;function createParticule(e,t)&#123;var a&#x3D;&#123;&#125;;return a.x&#x3D;e,a.y&#x3D;t,a.color&#x3D;colors[anime.random(0,colors.length-1)],a.radius&#x3D;anime.random(16,32),a.endPos&#x3D;setParticuleDirection(a),a.draw&#x3D;function()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle&#x3D;a.color,ctx.fill()&#125;,a&#125;function createCircle(e,t)&#123;var a&#x3D;&#123;&#125;;return a.x&#x3D;e,a.y&#x3D;t,a.color&#x3D;&quot;#F00&quot;,a.radius&#x3D;0.1,a.alpha&#x3D;0.5,a.lineWidth&#x3D;6,a.draw&#x3D;function()&#123;ctx.globalAlpha&#x3D;a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth&#x3D;a.lineWidth,ctx.strokeStyle&#x3D;a.color,ctx.stroke(),ctx.globalAlpha&#x3D;1&#125;,a&#125;function renderParticule(e)&#123;for(var t&#x3D;0;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;function animateParticules(e,t)&#123;for(var a&#x3D;createCircle(e,t),n&#x3D;[],i&#x3D;0;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:function(e)&#123;return e.endPos.x&#125;,y:function(e)&#123;return e.endPos.y&#125;,radius:0.1,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(80,160),lineWidth:0,alpha:&#123;value:0,easing:&quot;linear&quot;,duration:anime.random(600,800)&#125;,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule,offset:0&#125;)&#125;function debounce(e,t)&#123;var a;return function()&#123;var n&#x3D;this,i&#x3D;arguments;clearTimeout(a),a&#x3D;setTimeout(function()&#123;e.apply(n,i)&#125;,t)&#125;&#125;var canvasEl&#x3D;document.querySelector(&quot;.fireworks&quot;);if(canvasEl)&#123;var ctx&#x3D;canvasEl.getContext(&quot;2d&quot;),numberOfParticules&#x3D;30,pointerX&#x3D;0,pointerY&#x3D;0,tap&#x3D;&quot;mousedown&quot;,colors&#x3D;[&quot;#FF1461&quot;,&quot;#18FF92&quot;,&quot;#5A87FF&quot;,&quot;#FBF38C&quot;],setCanvasSize&#x3D;debounce(function()&#123;canvasEl.width&#x3D;2*window.innerWidth,canvasEl.height&#x3D;2*window.innerHeight,canvasEl.style.width&#x3D;window.innerWidth+&quot;px&quot;,canvasEl.style.height&#x3D;window.innerHeight+&quot;px&quot;,canvasEl.getContext(&quot;2d&quot;).scale(2,2)&#125;,500),render&#x3D;anime(&#123;duration:1&#x2F;0,update:function()&#123;ctx.clearRect(0,0,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,function(e)&#123;&quot;sidebar&quot;!&#x3D;&#x3D;e.target.id&amp;&amp;&quot;toggle-sidebar&quot;!&#x3D;&#x3D;e.target.id&amp;&amp;&quot;A&quot;!&#x3D;&#x3D;e.target.nodeName&amp;&amp;&quot;IMG&quot;!&#x3D;&#x3D;e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!1),setCanvasSize(),window.addEventListener(&quot;resize&quot;,setCanvasSize,!1)&#125;&quot;use strict&quot;;function updateCoords(e)&#123;pointerX&#x3D;(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY&#x3D;e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top&#125;function setParticuleDirection(e)&#123;var t&#x3D;anime.random(0,360)*Math.PI&#x2F;180,a&#x3D;anime.random(50,180),n&#x3D;[-1,1][anime.random(0,1)]*a;return&#123;x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)&#125;&#125;function createParticule(e,t)&#123;var a&#x3D;&#123;&#125;;return a.x&#x3D;e,a.y&#x3D;t,a.color&#x3D;colors[anime.random(0,colors.length-1)],a.radius&#x3D;anime.random(16,32),a.endPos&#x3D;setParticuleDirection(a),a.draw&#x3D;function()&#123;ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle&#x3D;a.color,ctx.fill()&#125;,a&#125;function createCircle(e,t)&#123;var a&#x3D;&#123;&#125;;return a.x&#x3D;e,a.y&#x3D;t,a.color&#x3D;&quot;#F00&quot;,a.radius&#x3D;0.1,a.alpha&#x3D;0.5,a.lineWidth&#x3D;6,a.draw&#x3D;function()&#123;ctx.globalAlpha&#x3D;a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth&#x3D;a.lineWidth,ctx.strokeStyle&#x3D;a.color,ctx.stroke(),ctx.globalAlpha&#x3D;1&#125;,a&#125;function renderParticule(e)&#123;for(var t&#x3D;0;t&lt;e.animatables.length;t++)&#123;e.animatables[t].target.draw()&#125;&#125;function animateParticules(e,t)&#123;for(var a&#x3D;createCircle(e,t),n&#x3D;[],i&#x3D;0;i&lt;numberOfParticules;i++)&#123;n.push(createParticule(e,t))&#125;anime.timeline().add(&#123;targets:n,x:function(e)&#123;return e.endPos.x&#125;,y:function(e)&#123;return e.endPos.y&#125;,radius:0.1,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule&#125;).add(&#123;targets:a,radius:anime.random(80,160),lineWidth:0,alpha:&#123;value:0,easing:&quot;linear&quot;,duration:anime.random(600,800)&#125;,duration:anime.random(1200,1800),easing:&quot;easeOutExpo&quot;,update:renderParticule,offset:0&#125;)&#125;function debounce(e,t)&#123;var a;return function()&#123;var n&#x3D;this,i&#x3D;arguments;clearTimeout(a),a&#x3D;setTimeout(function()&#123;e.apply(n,i)&#125;,t)&#125;&#125;var canvasEl&#x3D;document.querySelector(&quot;.fireworks&quot;);if(canvasEl)&#123;var ctx&#x3D;canvasEl.getContext(&quot;2d&quot;),numberOfParticules&#x3D;30,pointerX&#x3D;0,pointerY&#x3D;0,tap&#x3D;&quot;mousedown&quot;,colors&#x3D;[&quot;#FF1461&quot;,&quot;#18FF92&quot;,&quot;#5A87FF&quot;,&quot;#FBF38C&quot;],setCanvasSize&#x3D;debounce(function()&#123;canvasEl.width&#x3D;2*window.innerWidth,canvasEl.height&#x3D;2*window.innerHeight,canvasEl.style.width&#x3D;window.innerWidth+&quot;px&quot;,canvasEl.style.height&#x3D;window.innerHeight+&quot;px&quot;,canvasEl.getContext(&quot;2d&quot;).scale(2,2)&#125;,500),render&#x3D;anime(&#123;duration:1&#x2F;0,update:function()&#123;ctx.clearRect(0,0,canvasEl.width,canvasEl.height)&#125;&#125;);document.addEventListener(tap,function(e)&#123;&quot;sidebar&quot;!&#x3D;&#x3D;e.target.id&amp;&amp;&quot;toggle-sidebar&quot;!&#x3D;&#x3D;e.target.id&amp;&amp;&quot;A&quot;!&#x3D;&#x3D;e.target.nodeName&amp;&amp;&quot;IMG&quot;!&#x3D;&#x3D;e.target.nodeName&amp;&amp;(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))&#125;,!1),setCanvasSize(),window.addEventListener(&quot;resize&quot;,setCanvasSize,!1)&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>修改yoursite\themes\next\layout_layout.swig文件，在标签前添加下面代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-----------省略------------</span><br><span class="line">&#123;% if theme.fireworks %&#125;</span><br><span class="line">   &lt;canvas class&#x3D;&quot;fireworks&quot; style&#x3D;&quot;position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;&quot; &gt;&lt;&#x2F;canvas&gt; </span><br><span class="line">   &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;&#x2F;cdn.bootcss.com&#x2F;animejs&#x2F;2.2.0&#x2F;anime.min.js&quot;&gt;&lt;&#x2F;script&gt; </span><br><span class="line">   &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;js&#x2F;fireworks.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在<font color="Blue">主题配置文件</font>最后面新增一行<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 是否开启Fireworks</span><br><span class="line">fireworks: true</span><br></pre></td></tr></table></figure></li>
+<li>重新运行博客，点击就能看见效果了</li>
+</ol>
+<h1 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h1><p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/5.png" alt><br>1.生成付款二维码</p>
+<ul>
+<li>微信：打开微信-点击右上角加号-收付款-QR Code收款-储存收款码</li>
+<li>阿里：打开支付宝-首页-收钱-存储图片</li>
+</ul>
+<p>2.将二维码图片放进yoursite\themes\next\source，微信二维码图片改名为wechatpay.png，阿里二维码图片改名为/images/alipay.png<br>3.修改<font color="Blue">主题配置文件</font>，看看你需要哪个打赏就把哪个注释打开就行了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  #是否开启打赏</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  #comment: Donate comment here.</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.png</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.png</span><br><span class="line">  #paypal: &#x2F;images&#x2F;paypal.png</span><br><span class="line">  #bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加文章结束语"><a href="#添加文章结束语" class="headerlink" title="添加文章结束语"></a>添加文章结束语</h1><p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/6.png" alt><br>1.在博客根目录下yoursite\source下新建一个目录_data，_data目录下新建文件post-body-end.swig，写入下面内容<br>yoursite\source_data\post-body-end.swig</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        &lt;div style&#x3D;&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class&#x3D;&quot;fa fa-paw&quot;&gt;&lt;&#x2F;i&gt;感谢您的阅读-------------&lt;&#x2F;div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>2.修改<font color="Blue">主题配置文件</font></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  #head: source&#x2F;_data&#x2F;head.swig</span><br><span class="line">  #header: source&#x2F;_data&#x2F;header.swig</span><br><span class="line">  #sidebar: source&#x2F;_data&#x2F;sidebar.swig</span><br><span class="line">  #postMeta: source&#x2F;_data&#x2F;post-meta.swig</span><br><span class="line">  #修改，在文章末尾插入</span><br><span class="line">  postBodyEnd: source&#x2F;_data&#x2F;post-body-end.swig</span><br><span class="line">  #footer: source&#x2F;_data&#x2F;footer.swig</span><br><span class="line">  #bodyEnd: source&#x2F;_data&#x2F;body-end.swig</span><br><span class="line">  #variable: source&#x2F;_data&#x2F;variables.styl</span><br><span class="line">  #mixin: source&#x2F;_data&#x2F;mixins.styl</span><br><span class="line">  #style: source&#x2F;_data&#x2F;styles.styl</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改站点logo"><a href="#修改站点logo" class="headerlink" title="修改站点logo"></a>修改站点logo</h1><ol>
+<li>将logo图片放进yoursite\themes\next\source</li>
+<li>修改<font color="Blue">主题配置文件</font><br>修改 small和medium<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #小图标</span><br><span class="line">  small: &#x2F;images&#x2F;favicon-16x16-next.png</span><br><span class="line">  #中图标</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon-32x32-next.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: &#x2F;images&#x2F;logo.svg</span><br><span class="line">  #android_manifest: &#x2F;images&#x2F;manifest.json</span><br><span class="line">  #ms_browserconfig: &#x2F;images&#x2F;browserconfig.xml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="修改代码块样式"><a href="#修改代码块样式" class="headerlink" title="修改代码块样式"></a>修改代码块样式</h1><p>next集成了tomorrow-theme代码块样式，这里我们尝试修改成MAC风格的代码块</p>
+<ul>
+<li>默认代码块<br><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/7.png" alt></li>
+<li>Mac风格代码块<br><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/8.png" alt></li>
+</ul>
+<p>修改<font color="Blue">主题配置文件</font></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;chriskempson&#x2F;tomorrow-theme</span><br><span class="line">  # 黑暗风格，可选值参考Available values</span><br><span class="line">  highlight_theme: night eighties</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true</span><br><span class="line">    # 复制按钮</span><br><span class="line">    show_result: true</span><br><span class="line">    # 按钮风格，这里选择mac ，Available values: default | flat | mac</span><br><span class="line">    style: mac</span><br></pre></td></tr></table></figure>
+
+<h1 id="开启本地搜索"><a href="#开启本地搜索" class="headerlink" title="开启本地搜索"></a>开启本地搜索</h1><p><img src="/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/9.png" alt><br>1.安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+<p>2.<font color="Blue">主题配置文件</font><br>找到Local Search</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  #开启本地搜索</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-安装和使用主题</title>
+    <url>/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<p>Hexo快速搭建博客，并使用简约风格主题NexT<br><img src="/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Windows</li>
+<li><input checked disabled type="checkbox"> MAC</li>
+<li><input checked disabled type="checkbox"> Linux</li>
+</ul>
+<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+<li><input checked disabled type="checkbox"> nodejs 10.10.0~</li>
+<li><input checked disabled type="checkbox"> Git~</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Windows10</li>
+<li>nodejs-12.15.0</li>
+<li>npm-6.134</li>
+<li>Git~</li>
+<li>NexT-7.7.2</li>
+</ul>
+<h1 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h1><blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<h1 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h1><blockquote>
+<p><a href="http://localhost:4000/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/">参考作者过往的文章</a></p>
+</blockquote>
+<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><ul>
+<li>Windows：下载并安装 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git.</a></li>
+<li>Mac：使用 <a href="http://mxcl.github.com/homebrew/" target="_blank" rel="noopener">Homebrew</a>, <a href="http://www.macports.org/" target="_blank" rel="noopener">MacPorts</a> 或者下载 <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">安装程序</a>。</li>
+<li>Linux (Ubuntu, Debian)：sudo apt-get install git-core</li>
+<li>Linux (Fedora, Red Hat, CentOS)：sudo yum install git-core<blockquote>
+<p>Mac 用户</p>
+<blockquote>
+<p>如果在编译时可能会遇到问题，请先到 App Store 安装 Xcode，Xcode 完成后，启动并进入 Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安装命令行工具  </p>
+</blockquote>
+<p>Windows 用户</p>
+<blockquote>
+<p>对于中国大陆地区用户，可以前往 <a href="https://npm.taobao.org/mirrors/git-for-windows/" target="_blank" rel="noopener">淘宝 Git for Windows 镜像</a> 下载 git 安装包。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h1 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h1><p>1.官方推荐采用npm进行安装<br>上面的命令会把hexo.cmd安装到全局包仓库中，由于该仓库文件夹在Windows系统的path中。所以你就可以在任意位置执行hexo命令了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>2.确认是否安装完成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+<p>该命令会显示hexo的版本及依赖的包。</p>
+<h1 id="Hexo新建博客"><a href="#Hexo新建博客" class="headerlink" title="Hexo新建博客"></a>Hexo新建博客</h1><p>1.初始化博客，进入命令行(windows下按ctrl+r，输入cmd，回车)，然后输入下面命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+<p>改命令会创建一个blog文件夹<br>2. 启动博客</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">#显示如下</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>打开网页<a href="http://localhost:4000">http://localhost:4000</a> ，就能看见默认主题landscape的Hexo博客<br><img src="/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/1.png" alt="landscape"></p>
+<h1 id="Hexo安装主题"><a href="#Hexo安装主题" class="headerlink" title="Hexo安装主题"></a>Hexo安装主题</h1><blockquote>
+<p>创建 Hexo 主题非常容易，您只要在 themes 文件夹内，新增一个任意名称的文件夹，并修改 _config.yml 内的 theme 设定，即可切换主题。一个主题可能会有以下的结构：<br>├── _config.yml<br>├── languages<br>├── layout<br>├── scripts<br>└── source</p>
+</blockquote>
+<p>这里演示安装NexT主题，假设你的博客目录为blog</p>
+<p>1.首先先把NexT主题的源码下载下来放在blog目录的theme目录下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+<p>下载完成后我们可以检查一下blog/theme里面是否多了next这个主题的文件夹<br>2.修改blog目录下的_config.yml<br>找到下面这行代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: landscape</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>3.重启Hexo<br>如果你的Hexo已经启动，按ctrl+c停止，然后再次启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hexo s</span><br></pre></td></tr></table></figure>
+<p>4.再次进入博客首页，会发现主题已经更改<br><img src="/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/2.png" alt="next"><br>其他主题也是类似的安装方法，下次带来NexT最新版的主题优化方法</p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Superset-二次开发指南</title>
+    <url>/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>Superset0.35二次开发指南，自定义登录，集成echarts，自定义页面，自定义权限<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Windows</li>
+<li><input checked disabled type="checkbox"> MAC</li>
+<li><input checked disabled type="checkbox"> Linux</li>
+</ul>
+<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+<li><input checked disabled type="checkbox"> Python3.6~</li>
+<li><input checked disabled type="checkbox"> Pip~</li>
+<li><input checked disabled type="checkbox"> node.js~</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Windows10</li>
+<li>python 3.68</li>
+<li>pip 19.2.3</li>
+<li>setuptools 41.4.0</li>
+<li>nodejs 12.15.0</li>
+<li>npm 6.134</li>
+<li>superset 0.35</li>
+</ul>
+<blockquote>
+<p>superset版本变更比较大，本指南适用于0.35版本，其他版本不一定使用</p>
+</blockquote>
+<h1 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h1><ol>
+<li>从github上克隆一份源码，或者从别的压缩包解压一份源码git命令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;incubator-superset.git</span><br></pre></td></tr></table></figure></li>
+<li>配置 pip 国内源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip config set global.index-url https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure></li>
+<li>安装C++ buildTools,下载地址为(这个安装包4g大小，如果运行环境  搭建成功可以不安装)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;691126</span><br></pre></td></tr></table></figure></li>
+<li>创建虚拟环境，参考上面，已经有就跳过</li>
+<li>安装依赖<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install -r requirements-dev.txt</span><br></pre></td></tr></table></figure></li>
+<li>制作软连接（因为下载下来的源代码是superset\static\assets这个软连接可以在linux或者Mac上正常工作，但是在windows下不能正常工作），不是windows环境可以跳过<br>yourpath替换成你的路径<br>运行前先删除yourpath\incubator-superset\superset\static\下的assets文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mklink &#x2F;J &quot;yourpath\incubator-superset\superset\static\assets&quot;</span><br><span class="line">&quot;yourpath\incubator-superset\superset\assets&quot;</span><br></pre></td></tr></table></figure></li>
+<li>安装 superset 开发者模式<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install -e .</span><br></pre></td></tr></table></figure></li>
+<li>创建管理员账户，记住用户名跟密码,如果已经创建会报主键重复的错误，直接下一步<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fabmanager create-admin --app superset</span><br></pre></td></tr></table></figure></li>
+<li>进入superset/bin目录下，初始化数据库<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python superset db upgrade</span><br></pre></td></tr></table></figure></li>
+<li>应用初始化,后端配置完成<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python superset init</span><br></pre></td></tr></table></figure></li>
+<li>前端配置，进入superset/assets目录下，安装依赖<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+如果失败，请尝试<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+如果都失败，删掉node_model文件夹后请尝试<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm clean cache --force</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+ps:13.8版本的nodejs安装过程会出现如下错误,建议换成12.15版本<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/1.png" alt=" "></li>
+<li>执行下面代码，无报错则前端环境配置完成<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+若无报错，不要关闭，dev是指开发模式，会自动编译你修改过的代码<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/2.png" alt=" "><br>如果出现下面错误<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/3.png" alt=" "><br>执行<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save-dev @babel&#x2F;runtime-corejs3</span><br></pre></td></tr></table></figure></li>
+<li>新建终端，进入目录yourpath\incubator-superset\superset\bin<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m  flask run -p 8088 --with-threads --reload --debugger</span><br></pre></td></tr></table></figure></li>
+<li>打开网站localhost:8088，如正常显示界面则搭建成功</li>
+<li>用相应的工具开发前后端即可，我个人习惯使用Pycharm开发python，HbuilderX开发前端</li>
+</ol>
+<h1 id="自定义JWT登录验证"><a href="#自定义JWT登录验证" class="headerlink" title="自定义JWT登录验证"></a>自定义JWT登录验证</h1><blockquote>
+<p>superset自带Flask-login登录，但是实际项目需要使用无状态token登录，这时候我们修改下代码</p>
+</blockquote>
+<h2 id="superset登录逻辑"><a href="#superset登录逻辑" class="headerlink" title="superset登录逻辑"></a>superset登录逻辑</h2><ol>
+<li>首先看到入口文件,superset/<strong>init</strong>.py 第178行,从第一行代码可以看到superset默认使用SupersetSecurityManager这个类作为登录验证类<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">custom_sm&#x3D;app.config.get(&quot;CUSTOM_SECURITY_MANAGER&quot;) or SupersetSecurityManager</span><br><span class="line">if not issubclass(custom_sm, SupersetSecurityManager):</span><br><span class="line">	raise Exception(</span><br><span class="line">		&quot;&quot;&quot;Your CUSTOM_SECURITY_MANAGER must now </span><br><span class="line">		extend SupersetSecurityManager,</span><br><span class="line">		not FAB&#39;s security manager.</span><br><span class="line">		See [4565] in UPDATING.md</span><br><span class="line">		&quot;&quot;&quot;</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">with app.app_context():</span><br><span class="line">	appbuilder &#x3D; AppBuilder(</span><br><span class="line">		app,</span><br><span class="line">		db.session,</span><br><span class="line">		base_template&#x3D;&quot;superset&#x2F;base.html&quot;,</span><br><span class="line">		indexview&#x3D;MyIndexView,</span><br><span class="line">		security_manager_class&#x3D;custom_sm,</span><br><span class="line">		update_perms&#x3D;False,  </span><br><span class="line">		# Run &#96;superset init&#96; to update FAB&#39;s perms</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
+<li>查看SupersetSecurityManager父类的父类BaseSecurityManager<br>第609行,初始化的是这个self.authdbview类，即AuthDBView<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if self.auth_type &#x3D;&#x3D; AUTH_DB:</span><br><span class="line">	self.user_view &#x3D; self.userdbmodelview</span><br><span class="line">	self.auth_view &#x3D; self.authdbview()</span><br></pre></td></tr></table></figure></li>
+<li>查看AuthDBView类，里面写了登录的方法，所以只要我们重写SupersetSecurityManager和AuthDBView类就可以了</li>
+</ol>
+<h2 id="编写自己的JWT验证"><a href="#编写自己的JWT验证" class="headerlink" title="编写自己的JWT验证"></a>编写自己的JWT验证</h2><ol>
+<li>在superset下新建文件夹customize<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/4.png" alt></li>
+<li>新建CustomAuthDBView.py<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import jwt</span><br><span class="line">from flask_appbuilder.baseviews import expose</span><br><span class="line">from flask_appbuilder.security.views import AuthView</span><br><span class="line">from flask_appbuilder.security.forms import LoginForm_db</span><br><span class="line">from flask_appbuilder._compat import as_unicode</span><br><span class="line">from flask import flash, redirect, request,g</span><br><span class="line">from flask_login import login_user</span><br><span class="line">import time</span><br><span class="line">class CustomAuthDBView(AuthView):</span><br><span class="line">	login_template &#x3D; &quot;appbuilder&#x2F;general&#x2F;security&#x2F;login_db.html&quot;</span><br><span class="line"></span><br><span class="line">	@expose(&quot;&#x2F;login&#x2F;&quot;, methods&#x3D;[&quot;GET&quot;, &quot;POST&quot;])</span><br><span class="line">	def login(self):</span><br><span class="line">		token_dict &#x3D; &#123;</span><br><span class="line">			&#39;expiry&#39;:int(time.time()),</span><br><span class="line">			&#39;user_name&#39;: &#39;admin&#39;  # 自定义的参数</span><br><span class="line">		&#125;</span><br><span class="line">		print(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;create&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;)</span><br><span class="line">		encoded_str &#x3D; str(jwt.encode(token_dict, &#39;secret&#39;),</span><br><span class="line">		encoding&#x3D;&#39;ascii&#39;)</span><br><span class="line">		print(encoded_str)</span><br><span class="line">		token &#x3D; request.args.get(&#39;token&#39;)</span><br><span class="line">		if token is not None:</span><br><span class="line">			print(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;decode&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;)</span><br><span class="line">			jwt_decode &#x3D; jwt.decode(token, &#39;secret&#39;)</span><br><span class="line">			expiry &#x3D; jwt_decode.get(&quot;expiry&quot;)</span><br><span class="line">			user_name &#x3D; jwt_decode.get(&quot;user_name&quot;)</span><br><span class="line">			print(expiry)</span><br><span class="line">			print(user_name)</span><br><span class="line">			if time.time() - expiry &gt;&#x3D; 600:</span><br><span class="line">				flash(as_unicode(&quot;token失效&quot;), &quot;warning&quot;)</span><br><span class="line">				return redirect(self.appbuilder.get_url_for_login)</span><br><span class="line">			user &#x3D; self.appbuilder.sm.find_user(username&#x3D;user_name)</span><br><span class="line">			if user:</span><br><span class="line">				login_user(user, remember&#x3D;False)</span><br><span class="line">				return redirect(self.appbuilder.get_url_for_index)</span><br><span class="line">		if g.user is not None and g.user.is_authenticated:</span><br><span class="line">			return redirect(self.appbuilder.get_url_for_index)</span><br><span class="line">		form &#x3D; LoginForm_db()</span><br><span class="line">		if form.validate_on_submit():</span><br><span class="line">			user &#x3D; self.appbuilder.sm.auth_user_db(</span><br><span class="line">				form.username.data, form.password.data</span><br><span class="line">			)</span><br><span class="line">			if not user:</span><br><span class="line">				flash(as_unicode(self.invalid_login_message)</span><br><span class="line">				, &quot;warning&quot;)</span><br><span class="line">				return redirect(self.appbuilder.get_url_for_login)</span><br><span class="line">			login_user(user, remember&#x3D;False)</span><br><span class="line">			return redirect(self.appbuilder.get_url_for_index)</span><br><span class="line">		return self.render_template(</span><br><span class="line">			self.login_template, title&#x3D;self.title,</span><br><span class="line">			form&#x3D;form, appbuilder&#x3D;self.appbuilder</span><br><span class="line">		)</span><br></pre></td></tr></table></figure></li>
+<li>新建CustomSecurityManager.py<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from superset.customize.views.CustomAuthDBView import CustomAuthDBView</span><br><span class="line">from superset.security import SupersetSecurityManager</span><br><span class="line">class CustomSecurityManager(SupersetSecurityManager):</span><br><span class="line">    authdbview &#x3D; CustomAuthDBView</span><br></pre></td></tr></table></figure></li>
+<li>修改/superset/config.py,将<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CUSTOM_SECURITY_MANAGER &#x3D; None</span><br></pre></td></tr></table></figure>
+修改为<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from superset.customize.views.CustomSecurityManager import CustomSecurityManager</span><br><span class="line">CUSTOM_SECURITY_MANAGER &#x3D; CustomSecurityManager</span><br></pre></td></tr></table></figure></li>
+<li>启动服务，打开登陆界面.<a href="http://127.0.0.1:8088/login/" target="_blank" rel="noopener">http://127.0.0.1:8088/login/</a><br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/5.png" alt></li>
+</ol>
+<p>6.将打印的token作为参数,<a href="http://127.0.0.1:8088/login/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcnkiOjE1ODExNzE5NDQsInVzZXJfbmFtZSI6ImFkbWluIn0.PqVrvym3L6v2yNDCPcIBPmhq33nTUJn-q_dgg5tSTfU" target="_blank" rel="noopener">http://127.0.0.1:8088/login/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcnkiOjE1ODExNzE5NDQsInVzZXJfbmFtZSI6ImFkbWluIn0.PqVrvym3L6v2yNDCPcIBPmhq33nTUJn-q_dgg5tSTfU</a>, 就能直接登录了，具体登录逻辑可以自己开发，这里只判断了用户名与时效</p>
+<h1 id="Superset集成Echarts"><a href="#Superset集成Echarts" class="headerlink" title="Superset集成Echarts"></a>Superset集成Echarts</h1><h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><p>修改superset\viz.py文件(这里是所有图表的后端处理文件，每一类对应一个图表的后端处理方法),添加一个类Echart</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class EchartsBarViz(BaseViz):</span><br><span class="line">    viz_type &#x3D; &#39;echarts_bar&#39;</span><br><span class="line">    verbose_name &#x3D; &quot;Echarts Bar&quot;</span><br><span class="line">    is_timeseries &#x3D; True</span><br><span class="line"></span><br><span class="line">    def query_obj(self):</span><br><span class="line">        d &#x3D; super(TimeSeriesScatterViz, self).query_obj()</span><br><span class="line">        fd &#x3D; self.form_data  # form_data中包含界面左侧组件内容</span><br><span class="line"></span><br><span class="line">        if not fd.get(&#39;all_columns&#39;): </span><br><span class="line">            raise Exception(&#39;Choose Columns&#39;)</span><br><span class="line"></span><br><span class="line">        if fd.get(&#39;all_columns&#39;):</span><br><span class="line">            d[&#39;columns&#39;] &#x3D; fd.get(&#39;all_columns&#39;) </span><br><span class="line">        return d</span><br><span class="line"></span><br><span class="line">    def get_data(self, df):</span><br><span class="line">        data &#x3D; np.array(df).tolist()</span><br><span class="line">        return data</span><br></pre></td></tr></table></figure>
+<p>query_obj方法是在前查询的时候执行的，get_data方法是在查询时候执行的<br>viz_type是用来标识这个函数属于哪个前端图表的，必须与前端的注册文件一一对应，verbose_name是别名，目前没用</p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ol>
+<li>首先新建一个文件夹EchartsBar<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/6.png" alt></li>
+<li>新建入口文件index.js,入口文件主要调用了ReactEcharsBar.js和tansformProps.js，还有配置一些属性<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; t &#125; from &#39;@superset-ui&#x2F;translation&#39;;</span><br><span class="line">import &#123; ChartMetadata, ChartPlugin &#125; from &#39;@superset-ui&#x2F;chart&#39;;</span><br><span class="line">import transformProps from &#39;.&#x2F;transformProps&#39;;</span><br><span class="line">import thumbnail from &#39;.&#x2F;images&#x2F;thumbnail.png&#39;;</span><br><span class="line"></span><br><span class="line">const metadata &#x3D; new ChartMetadata(&#123;</span><br><span class="line">  name: t(&#39;Echart Bar&#39;),</span><br><span class="line">  description: &#39;&#39;,</span><br><span class="line">  credits: [&#39;http:&#x2F;&#x2F;echarts.baidu.com&#x2F;examples&#x2F;editor.html?c&#x3D;scatter-effect&#39;],</span><br><span class="line">  thumbnail,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">export default class TimeSeriesScatterChartPlugin extends ChartPlugin &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super(&#123;</span><br><span class="line">      metadata,</span><br><span class="line">      transformProps,</span><br><span class="line">      loadChart: () &#x3D;&gt; import(&#39;.&#x2F;ReactEchartsBar.js&#39;),</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建transformProps.js,这是用来整理数据的文件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">export default function transformProps(chartProps) &#123;</span><br><span class="line">  const &#123; width, height, queryData &#125; &#x3D; chartProps;</span><br><span class="line">  &#x2F;&#x2F;console.log(chartProps); 可以用来验证数据是否正确</span><br><span class="line">  return &#123;</span><br><span class="line">    data: queryData,</span><br><span class="line">    width,</span><br><span class="line">    height,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>新建ReactEcharsBar.js,这是画图的入口文件，主要调用了EcharsBar.js<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; reactify &#125; from &#39;@superset-ui&#x2F;chart&#39;;</span><br><span class="line">import Component from &#39;.&#x2F;EchartsBar&#39;;</span><br><span class="line"></span><br><span class="line">export default reactify(Component);</span><br></pre></td></tr></table></figure></li>
+<li>新建EchartsBar.js,这里引入了EchartsBar.css文件.这里的数据是从数据库里拿出来的，可以先把处理数据的代码去掉，然后写死数据来测试，否则会报错<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import d3 from &#39;d3&#39;;</span><br><span class="line">import PropTypes from &#39;prop-types&#39;;</span><br><span class="line">import &#123; CategoricalColorNamespace &#125; from &#39;@superset-ui&#x2F;color&#39;;</span><br><span class="line">import &#123; getNumberFormatter &#125; from &#39;@superset-ui&#x2F;number-format&#39;;</span><br><span class="line">import &#39;.&#x2F;EchartsBar.css&#39;;</span><br><span class="line">import echarts from &#39;echarts&#39;;</span><br><span class="line">const propTypes &#x3D; &#123;</span><br><span class="line">  data: PropTypes.array,</span><br><span class="line">  width: PropTypes.number,</span><br><span class="line">  height: PropTypes.number,</span><br><span class="line">  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function EchartsBar(element, props) &#123;</span><br><span class="line">  const &#123; data, width, height &#125; &#x3D; props;</span><br><span class="line"></span><br><span class="line">  element.innerHTML &#x3D; &#39;&#39;;</span><br><span class="line">  &#x2F;&#x2F;处理数据</span><br><span class="line">  var echars_xAxis &#x3D; []</span><br><span class="line">  var echars_series &#x3D; []</span><br><span class="line">  data.data.forEach((val, idx, array) &#x3D;&gt; &#123;</span><br><span class="line">	 var index &#x3D; echars_xAxis.indexOf(val[4]);</span><br><span class="line">	 if (index &#x3D;&#x3D; -1) &#123;</span><br><span class="line">		 echars_xAxis.push(val[4]);</span><br><span class="line">		 echars_series.push(1);</span><br><span class="line">	 &#125;else&#123;</span><br><span class="line">		 echars_series[index] +&#x3D; 1;</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  const div &#x3D; d3.select(element, props);</span><br><span class="line">  var html &#x3D; &#39;&lt;div id&#x3D;&quot;myChart&quot; style&#x3D;&quot;height:&#39; + height + </span><br><span class="line">  &#39;px; width:&#39; + width + &#39;px;&quot;&gt;&lt;&#x2F;div&gt;&#39;;</span><br><span class="line">  div.html(html); &#x2F;&#x2F;给echarts添加div</span><br><span class="line">  var myChart &#x3D; echarts.init(document.getElementById(&#39;myChart&#39;)); &#x2F;&#x2F;初始化echarts</span><br><span class="line">  var option &#x3D; &#123;</span><br><span class="line">      xAxis: &#123;</span><br><span class="line">          type: &#39;category&#39;,</span><br><span class="line">          data: echars_xAxis,</span><br><span class="line">		  &quot;axisLabel&quot;:&#123;</span><br><span class="line">		      		interval: 0</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      yAxis: &#123;</span><br><span class="line">          type: &#39;value&#39;</span><br><span class="line">      &#125;,</span><br><span class="line">      series: [&#123;</span><br><span class="line">          data: echars_series,</span><br><span class="line">          type: &#39;bar&#39;</span><br><span class="line">      &#125;]</span><br><span class="line">  &#125;;</span><br><span class="line">  myChart.setOption(option);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EchartsBar.displayName &#x3D; &#39;Echarts Bar&#39;;</span><br><span class="line">EchartsBar.propTypes &#x3D; propTypes;</span><br><span class="line"></span><br><span class="line">export default EchartsBar;</span><br></pre></td></tr></table></figure></li>
+<li>创建EchartsBar.css文件，可以在里面自己写样式<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.superset-legacy-chart-chord svg #circle circle &#123;</span><br><span class="line">  fill: none;</span><br><span class="line">  pointer-events: all;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.superset-legacy-chart-chord svg .group path &#123;</span><br><span class="line">  fill-opacity: 0.6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.superset-legacy-chart-chord svg path.chord &#123;</span><br><span class="line">  stroke: #000;</span><br><span class="line">  stroke-width: 0.25px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.superset-legacy-chart-chord svg #circle:hover path.fade &#123;</span><br><span class="line">  opacity: 0.2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建文件夹images,里面放两张图片，一个命名为thumbnail.png，一个命名为thumbnailLarge.png,这两张是选择图例的封面图。</li>
+<li>注册图例，打开/superset/visualizations/presets/MainPreset.js,添加以下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import EchartsBar from &#39;..&#x2F;EchartsBar&#x2F;index.js&#39;</span><br></pre></td></tr></table></figure>
+<img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/7.png" alt></li>
+<li>新建图表搜索面板文件,在/superset/explore/controlPanels/下新建文件EchartsBar.js,这里定义了左边的搜索条件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; t &#125; from &#39;@superset-ui&#x2F;translation&#39;;</span><br><span class="line">export default &#123;</span><br><span class="line">  controlPanelSections: [</span><br><span class="line">      &#123;</span><br><span class="line">          label: t(&#39;NOT GROUPED BY&#39;),  </span><br><span class="line">		  &#x2F;&#x2F;控制块标题，可以有多个控制块，一块包含多个组件</span><br><span class="line">          description: t(&#39;Use this section if you want to query atomic rows&#39;), </span><br><span class="line">		  &#x2F;&#x2F;描述</span><br><span class="line">          expanded: true,</span><br><span class="line">          controlSetRows: [</span><br><span class="line">              [&#39;all_columns&#39;],  &#x2F;&#x2F;使用的组件名</span><br><span class="line">              [&#39;row_limit&#39;, null],</span><br><span class="line">          ],</span><br><span class="line">      &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>注册面板<br>在/superset/setup/setupPlugins.ts添加下面代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import EchartsBar from &#39;..&#x2F;explore&#x2F;controlPanels&#x2F;EchartsBar&#39;;</span><br></pre></td></tr></table></figure>
+<img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/9.png" alt></li>
+<li>重启前后端服务器，打开网页就可以看见新的图例<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/10.png" alt><br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/11.png" alt></li>
+</ol>
+<h1 id="自定义页面"><a href="#自定义页面" class="headerlink" title="自定义页面"></a>自定义页面</h1><h2 id="新增路由"><a href="#新增路由" class="headerlink" title="新增路由"></a>新增路由</h2><p>在superset/view/core.py最下面添加代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class lucas(BaseSupersetView):</span><br><span class="line">	route_base &#x3D; &#39;&#x2F;lucas&#39;</span><br><span class="line">	default_view &#x3D; &#39;theme&#39;</span><br><span class="line">    @expose(&quot;&#x2F;theme&#x2F;&quot;)</span><br><span class="line">    def theme(self):</span><br><span class="line">        return self.render_template(&quot;superset&#x2F;theme.html&quot;)</span><br><span class="line"></span><br><span class="line">appbuilder.add_view_no_menu(lucas)</span><br></pre></td></tr></table></figure>
+<p>其中route_base是根路由，default_view是默认视图路由<br>重启服务器，访问<a href="http://127.0.0.1:8088/lucas/theme/" target="_blank" rel="noopener">http://127.0.0.1:8088/lucas/theme/</a><br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/12.png" alt><br>这里只是随便返回了一个html页面，可以根据自己的需求来写逻辑</p>
+<h2 id="新增菜单选项"><a href="#新增菜单选项" class="headerlink" title="新增菜单选项"></a>新增菜单选项</h2><p>在superset/view/core.py最下面添加代码,主要是add_link和add_view函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class lucas(BaseSupersetView):</span><br><span class="line">    route_base &#x3D; &#39;&#x2F;lucas&#39;</span><br><span class="line">	default_view &#x3D; &#39;theme&#39;</span><br><span class="line">    @expose(&quot;&#x2F;theme&#x2F;&quot;)</span><br><span class="line">    def theme(self):</span><br><span class="line">        return self.render_template(&quot;superset&#x2F;theme.html&quot;)</span><br><span class="line"></span><br><span class="line">appbuilder.add_view(lucas,&#39;Hello&#39;,category&#x3D;&#39;My View&#39;)</span><br><span class="line"></span><br><span class="line">appbuilder.add_link(&#39;message&#39;,href&#x3D;&#39;&#x2F;lucas&#x2F;theme&#x2F;&#39;,category&#x3D;&#39;My View&#39;)</span><br></pre></td></tr></table></figure>
+<p>重新执行python superset init,启动服务<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/13.png" alt></p>
+<h2 id="新增React页面"><a href="#新增React页面" class="headerlink" title="新增React页面"></a>新增React页面</h2><ol>
+<li>首先复制一份superset\assets\src\welcome文件夹到superset\assets\src\下并改名为myView<br><img src="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/14.png" alt></li>
+<li>修改superset\assets\webpack.config.js文件，搜索entry，找到代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">  theme: path.join(APP_DIR, &#39;&#x2F;src&#x2F;theme.js&#39;),</span><br><span class="line">  preamble: PREAMBLE,</span><br><span class="line">  addSlice: addPreamble(&#39;&#x2F;src&#x2F;addSlice&#x2F;index.jsx&#39;),</span><br><span class="line">  explore: addPreamble(&#39;&#x2F;src&#x2F;explore&#x2F;index.jsx&#39;),</span><br><span class="line">  dashboard: addPreamble(&#39;&#x2F;src&#x2F;dashboard&#x2F;index.jsx&#39;),</span><br><span class="line">  sqllab: addPreamble(&#39;&#x2F;src&#x2F;SqlLab&#x2F;index.jsx&#39;),</span><br><span class="line">  welcome: addPreamble(&#39;&#x2F;src&#x2F;welcome&#x2F;index.jsx&#39;),</span><br><span class="line">  profile: addPreamble(&#39;&#x2F;src&#x2F;profile&#x2F;index.jsx&#39;),</span><br><span class="line">  showSavedQuery: [path.join(APP_DIR, &#39;&#x2F;src&#x2F;showSavedQuery&#x2F;index.jsx&#39;)],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+新增自己的页面(myView)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">  theme: path.join(APP_DIR, &#39;&#x2F;src&#x2F;theme.js&#39;),</span><br><span class="line">  preamble: PREAMBLE,</span><br><span class="line">  addSlice: addPreamble(&#39;&#x2F;src&#x2F;addSlice&#x2F;index.jsx&#39;),</span><br><span class="line">  explore: addPreamble(&#39;&#x2F;src&#x2F;explore&#x2F;index.jsx&#39;),</span><br><span class="line">  dashboard: addPreamble(&#39;&#x2F;src&#x2F;dashboard&#x2F;index.jsx&#39;),</span><br><span class="line">  sqllab: addPreamble(&#39;&#x2F;src&#x2F;SqlLab&#x2F;index.jsx&#39;),</span><br><span class="line">  welcome: addPreamble(&#39;&#x2F;src&#x2F;welcome&#x2F;index.jsx&#39;),</span><br><span class="line">  profile: addPreamble(&#39;&#x2F;src&#x2F;profile&#x2F;index.jsx&#39;),</span><br><span class="line">  #新增</span><br><span class="line">  myView: addPreamble(&#39;&#x2F;src&#x2F;myView&#x2F;index.jsx&#39;),</span><br><span class="line">  showSavedQuery: [path.join(APP_DIR, &#39;&#x2F;src&#x2F;showSavedQuery&#x2F;index.jsx&#39;)],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li>编译项目<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure></li>
+<li>去掉superset的导航栏<br>新增默认模板,复制/superset/templates/superset/basic.html到/superset/templates/superset/,改名为myBasic.html<br>删除以下代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% block navbar %&#125;</span><br><span class="line">  &#123;% if not standalone_mode %&#125;</span><br><span class="line">    &lt;header class&#x3D;&quot;top&quot; role&#x3D;&quot;header&quot;&gt;</span><br><span class="line">      &#123;% include &#39;appbuilder&#x2F;navbar.html&#39; %&#125;</span><br><span class="line">    &lt;&#x2F;header&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>后端新增路由<br>在/superset/views/core.py最下面新增代码,myBasic.html是我们自定义默认模板，myView是react的入口文件，<br>bootstrap是配置数据，myView要和我们前面定义的myView对应上。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class lucas(BaseSupersetView):</span><br><span class="line">    route_base &#x3D; &#39;&#x2F;lucas&#39;</span><br><span class="line">	default_view &#x3D; &#39;theme&#39;</span><br><span class="line"></span><br><span class="line">    @expose(&quot;&#x2F;theme&#x2F;&quot;)</span><br><span class="line">    def theme(self):</span><br><span class="line">        d &#x3D; &#123;</span><br><span class="line">            &quot;defaultDbId&quot;: config.get(&quot;SQLLAB_DEFAULT_DBID&quot;),</span><br><span class="line">            &quot;common&quot;: self.common_bootstrap_payload(),</span><br><span class="line">        &#125;</span><br><span class="line">        return self.render_template(</span><br><span class="line">            &quot;superset&#x2F;myBasic.html&quot;,</span><br><span class="line">            entry&#x3D;&quot;myView&quot;,</span><br><span class="line">            bootstrap_data&#x3D;json.dumps(d, default&#x3D;utils.json_iso_dttm_ser),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">appbuilder.add_view(lucas,&#39;Hello&#39;,category&#x3D;&#39;My View&#39;)</span><br></pre></td></tr></table></figure></li>
+<li>重启superset,打开<a href="http://127.0.0.1:8088/lucas/theme/，就会进入没有导航栏的react首页，然后再根据需求使用react开发页面即可" target="_blank" rel="noopener">http://127.0.0.1:8088/lucas/theme/，就会进入没有导航栏的react首页，然后再根据需求使用react开发页面即可</a></li>
+</ol>
+<h1 id="视图与角色权限"><a href="#视图与角色权限" class="headerlink" title="视图与角色权限"></a>视图与角色权限</h1><blockquote>
+<p>superset默认把角色与视图的权限存在了sqlite(可更改)里了,如果要新增权限我们要在数据库里插入数据，主要是三个表ab_permission,ab_permission_view,ab_view_menu。<br>我们需要在表中插入相关权限数据，分别是三个表ab_permission,ab_permission_view,ab_view_menu，然后给路由添加@has_access或者@has_access_api的注解</p>
+</blockquote>
+<h2 id="控制权限代码块"><a href="#控制权限代码块" class="headerlink" title="控制权限代码块"></a>控制权限代码块</h2><p>@has_access用于视图，@has_access_api用于api</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from flask_appbuilder.security.decorators import permission_name</span><br><span class="line"></span><br><span class="line">class lucas(BaseSupersetView):</span><br><span class="line">	route_base &#x3D; &#39;&#x2F;lucas&#39;</span><br><span class="line">	default_view &#x3D; &#39;theme&#39;</span><br><span class="line">	class_permission_name &#x3D; &#39;Api&#39;</span><br><span class="line"></span><br><span class="line">	@has_access</span><br><span class="line">	@permission_name(&quot;query_form_data&quot;)</span><br><span class="line">	@expose(&quot;&#x2F;theme&#x2F;&quot;)</span><br><span class="line">	def theme(self):</span><br><span class="line">		return self.render_template(&quot;superset&#x2F;theme.html&quot;)</span><br><span class="line"></span><br><span class="line">appbuilder.add_view(lucas,&#39;Hello&#39;,category&#x3D;&#39;My View&#39;)</span><br></pre></td></tr></table></figure>
+<h2 id="插入权限数据"><a href="#插入权限数据" class="headerlink" title="插入权限数据"></a>插入权限数据</h2><p>class_permission_name = ‘Api’中的api<br>@permission_name(“query_form_data”)中的query_form_data都是数据库里默认存在的数据，<br>我们可以插入不同权限数据，然后修改这两个属性就可以达到新增权限的效果。<br>方法1. 在三个表ab_permission,ab_permission_view,ab_view_menu中插入数据<br>方法2: 在上面代码下加入db.create_all()，然后运行superset init初始化系统自动创建权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.create_all()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Superset</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Superset-轻量级BI平台的使用</title>
+    <url>/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>Superset-轻量级BI平台的使用: 配置数据源，新增图表，api….<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Linux</li>
+<li><input checked disabled type="checkbox"> Mac OS</li>
+<li><input checked disabled type="checkbox"> Windows</li>
+</ul>
+<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+<li><input checked disabled type="checkbox"> Python3.6~</li>
+<li><input checked disabled type="checkbox"> Pip~</li>
+<li><input checked disabled type="checkbox"> Setuptools~</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Windows10</li>
+<li>python3.68</li>
+<li>pip~</li>
+<li>setuptools~</li>
+</ul>
+<h1 id="什么是SuperSet"><a href="#什么是SuperSet" class="headerlink" title="什么是SuperSet"></a>什么是SuperSet</h1><blockquote>
+<p>Superset 是 Airbnb 开源的大数据可视化平台，其特性包括：<br>• backend 支持几乎所有主流的数据库<br>• 支持复杂的权限控制和管理(OpenId, OAuth 等)，满足企业内部不同部门人员对数据的权限要求<br>• 丰富的可视化展示，支持自定义创建 dashboard，可分享<br>• 可扩展、细粒度的数据库权限控制，满足不同层级人员对数据库权限的要求<br>• 数据的展示完全可控，可自定义展示字段、聚合数据、数据源等<br>• 深度集成 Druid.io</p>
+</blockquote>
+<h1 id="SuperSet安装"><a href="#SuperSet安装" class="headerlink" title="SuperSet安装"></a>SuperSet安装</h1><blockquote>
+<p>Superset已弃用对Python的2.*支持，仅支持~=3.6利用Python的新功能并减少支持以前版本的负担。我们针对来运行我们的测试套件3.6，但3.7也完全受支持</p>
+</blockquote>
+<h2 id="创建Python3虚拟环境"><a href="#创建Python3虚拟环境" class="headerlink" title="创建Python3虚拟环境"></a>创建Python3虚拟环境</h2><blockquote>
+<p>python3 自带venv模块创建虚拟环境</p>
+</blockquote>
+<ol>
+<li>创建虚拟环境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure></li>
+<li>激活虚拟环境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">. &#x2F;opt&#x2F;venv&#x2F;bin&#x2F;activate</span><br><span class="line">venv\Scripts\activate</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>激活虚拟环境后命令行将变为（venv）</strong></p>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="Debian和Ubuntu"><a href="#Debian和Ubuntu" class="headerlink" title="Debian和Ubuntu"></a>Debian和Ubuntu</h3><p>以下命令将确保已安装必需的依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev libffi-dev python-dev python-pip </span><br><span class="line">libsasl2-dev libldap2-dev</span><br></pre></td></tr></table></figure>
+<p>Ubuntu 18.04如果在Ubuntu 18.04 LTS上默认将python3.6和python2.7一起安装，请同时运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev </span><br><span class="line">libffi-dev python3.6-dev python-pip libsasl2-dev libldap2-dev</span><br></pre></td></tr></table></figure>
+<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统:"></a>其他linux系统:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum upgrade python-setuptools  </span><br><span class="line">sudo yum install gcc gcc-c++ libffi-devel python-devel python-pip python-wheel </span><br><span class="line">openssl-devel cyrus-sasl-devel openldap-devel</span><br></pre></td></tr></table></figure>
+<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>Mac OS X如果可能，您应该升级到最新版本的OS X，因为该版本更有可能解决问题。您可能需要适用于已安装的OS X版本的最新版本的XCode。还应该安装XCode命令行工具：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>目前尚不正式支持Windows，但如果要尝试使用Windows，请下载get-pip.py并运行，可能需要管理员权限。然后运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install cryptography</span><br></pre></td></tr></table></figure>
+
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="1-安装superset"><a href="#1-安装superset" class="headerlink" title="1. 安装superset"></a>1. 安装superset</h3><p>从阿里云镜像里下载速度会快很多，等待pip安装完成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install apache-superset -i https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure>
+<p>如果是windows，下面的操作都必须在包的bin目录下进行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd yourPath&#x2F;python3.6&#x2F;site-packages&#x2F;superset&#x2F;bin</span><br></pre></td></tr></table></figure>
+<p>命令前面加上python，例如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python superset init</span><br></pre></td></tr></table></figure>
+<p>如果windows在安装Python-geohash出现如下报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Running setup.py bdist_wheel for python-geohash ... error</span><br></pre></td></tr></table></figure>
+<p>请到<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">这里</a>下载相应的安装包，如果是Python3.7，则文件名为python_geohash‑0.8.5‑cp37‑cp37m‑win_amd64.whl<br>然后进入文件目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install python_geohash‑0.8.5‑cp37‑cp37m‑win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-初始化数据库"><a href="#2-初始化数据库" class="headerlink" title="2. 初始化数据库"></a>2. 初始化数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">superset db upgrade</span><br></pre></td></tr></table></figure>
+<p>如果是windows，出现如下错误</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ImportError: cannot import name &#39;ImmutableDict&#39; from &#39;werkzeug&#39;</span><br></pre></td></tr></table></figure>
+<p>请将werkzeug升级到0.15以上</p>
+<h3 id="3-创建管理员用户"><a href="#3-创建管理员用户" class="headerlink" title="3. 创建管理员用户"></a>3. 创建管理员用户</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fabmanager create-admin --app superset</span><br><span class="line">#按提示输入</span><br><span class="line">#用户名:admin</span><br><span class="line">#姓:admin</span><br><span class="line">#名:admin</span><br><span class="line">#邮箱:admin@zjft.com</span><br><span class="line">#密码:admin</span><br><span class="line">#确认密码:admin</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-导入样例数据-可跳过"><a href="#4-导入样例数据-可跳过" class="headerlink" title="4. 导入样例数据(可跳过)"></a>4. 导入样例数据(可跳过)</h3><p>导入世界卫生组织的样例数据（下载失败，貌似要翻墙）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">superset load_examples</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-系统初始化"><a href="#5-系统初始化" class="headerlink" title="5. 系统初始化"></a>5. 系统初始化</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">superset init</span><br></pre></td></tr></table></figure>
+<h3 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6. 启动服务"></a>6. 启动服务</h3><p>superset启动的命令为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">superset run -h host -p port</span><br></pre></td></tr></table></figure>
+<p>其中host为superset的IP地址，port为端口号<br>Linux:<br>需要开放相关端口，默认是8080</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport  8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>如果开启了防火墙，要打开防火墙的8080端口</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;8080&#x2F;tcp –permanent</span><br><span class="line">firewall-cmd –reload</span><br></pre></td></tr></table></figure>
+<p>查看防火墙的8080端口是否开启</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">firewall-cmd --query-port&#x3D;8080&#x2F;tcp</span><br></pre></td></tr></table></figure>
+<p>启动superset后台服务,-h 0.0.0.0(可供局域网访问),-p 端口并把日志写入superset.log文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup superset run -h 0.0.0.0 -p 8080 --with-threads --reload --debugger</span><br><span class="line">&gt;superset.log &amp;</span><br></pre></td></tr></table></figure>
+<p>Windows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python superset run -h 0.0.0.0 -p 8080 --with-threads --reload --debugger</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>浏览器访问<a href="http://IP:8080/" target="_blank" rel="noopener">http://IP:8080/</a></li>
+</ol>
+<h1 id="SuperSet配置数据源"><a href="#SuperSet配置数据源" class="headerlink" title="SuperSet配置数据源"></a>SuperSet配置数据源</h1><ol>
+<li>服务器需要安装好你所使用的数据库和相关驱动<table>
+<thead>
+<tr>
+<th>database</th>
+<th>pypi package</th>
+<th>SQLAlchemy URI prefix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Amazon Athena</td>
+<td>pip install “PyAthenaJDBC&gt;1.0.9”</td>
+<td>awsathena+jdbc://</td>
+</tr>
+<tr>
+<td>Amazon Athena</td>
+<td>pip install “PyAthena&gt;1.2.0”</td>
+<td>awsathena+rest://</td>
+</tr>
+<tr>
+<td>Amazon Redshift</td>
+<td>pip install sqlalchemy-redshift</td>
+<td>redshift+psycopg2://</td>
+</tr>
+<tr>
+<td>Apache Drill</td>
+<td>pip install sqlalchemy-drill</td>
+<td>For the REST API:`` drill+sadrill:// For JDBC drill+jdbc://</td>
+</tr>
+<tr>
+<td>Apache Druid</td>
+<td>pip install pydruid</td>
+<td>druid://</td>
+</tr>
+<tr>
+<td>Apache Hive</td>
+<td>pip install pyhive</td>
+<td>hive://</td>
+</tr>
+<tr>
+<td>Apache Impala</td>
+<td>pip install impyla</td>
+<td>impala://</td>
+</tr>
+<tr>
+<td>Apache Kylin</td>
+<td>pip install kylinpy</td>
+<td>kylin://</td>
+</tr>
+<tr>
+<td>Apache Pinot</td>
+<td>pip install pinotdb</td>
+<td>pinot+<a href="http://CONTROLLER:5436/" target="_blank" rel="noopener">http://CONTROLLER:5436/</a> query?server=<a href="http://CONTROLLER:5983/" target="_blank" rel="noopener">http://CONTROLLER:5983/</a></td>
+</tr>
+<tr>
+<td>Apache Spark SQL</td>
+<td>pip install pyhive</td>
+<td>jdbc+hive://</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>pip install pybigquery</td>
+<td>bigquery://</td>
+</tr>
+<tr>
+<td>ClickHouse</td>
+<td>pip install sqlalchemy-clickhouse</td>
+<td></td>
+</tr>
+<tr>
+<td>Elasticsearch</td>
+<td>pip install elasticsearch-dbapi</td>
+<td>elasticsearch+http://</td>
+</tr>
+<tr>
+<td>Exasol</td>
+<td>pip install sqlalchemy-exasol</td>
+<td>exa+pyodbc://</td>
+</tr>
+<tr>
+<td>Google Sheets</td>
+<td>pip install gsheetsdb</td>
+<td>gsheets://</td>
+</tr>
+<tr>
+<td>IBM Db2</td>
+<td>pip install ibm_db_sa</td>
+<td>db2+ibm_db://</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>pip install mysqlclient</td>
+<td>mysql://</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>pip install cx_Oracle</td>
+<td>oracle://</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>pip install psycopg2</td>
+<td>postgresql+psycopg2://</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>pip install pyhive</td>
+<td>presto://</td>
+</tr>
+<tr>
+<td>Snowflake</td>
+<td>pip install snowflake-sqlalchemy</td>
+<td>snowflake://</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td></td>
+<td>sqlite://</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>pip install pymssql</td>
+<td>mssql://</td>
+</tr>
+<tr>
+<td>Teradata</td>
+<td>pip install sqlalchemy-teradata</td>
+<td>teradata://</td>
+</tr>
+<tr>
+<td>Vertica</td>
+<td>pip install sqlalchemy-vertica-python</td>
+<td>vertica+vertica_python://</td>
+</tr>
+<tr>
+<td>Hana</td>
+<td>pip install hdbcli sqlalchemy-hana or pip install superset[hana]</td>
+<td>hana://</td>
+</tr>
+</tbody></table>
+</li>
+<li>进入首页,输入配置好的用户名，密码<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/1.png" alt="superset1"></li>
+<li>进入数据源<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/2.png" alt="superset2"></li>
+<li>增加数据源<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/3.png" alt="增加数据源"></li>
+<li>配置数据源<br>以druid的mysql数据库为例，填好数据库名和数据库的URI(SQLAlchemy URI)。点击Test Connetion 测试数据库是否可用，没问题就点击保存<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/4.png" alt="增加数据源"></li>
+<li>创建成功<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/5.png" alt="创建成功"></li>
+</ol>
+<h1 id="SuperSet使用Druid"><a href="#SuperSet使用Druid" class="headerlink" title="SuperSet使用Druid"></a>SuperSet使用Druid</h1><ol>
+<li>服务器需要安装Druid的python包<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install pydruid</span><br></pre></td></tr></table></figure></li>
+<li>创建Druid集群<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/6.png" alt="Druid集群"></li>
+<li>新建一个Druid集群<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/7.png" alt="Druid集群"></li>
+<li>填入集群的配置信息, Cluster选项可以随意填，点击保存<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/8.png" alt="Druid集群"></li>
+<li>打开Druid集群管理页面，刚创建的集群的元数据是为None。<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/9.png" alt="Druid集群"></li>
+<li>手动刷新Druid的元数据<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/10.png" alt="Druid集群"></li>
+<li>刷新成功后会自动创建一个Druid Datasources（数据源）。如果失败了则检查Druid的配置有没写错<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/11.png" alt="Druid集群"></li>
+<li>返回Druid cluster页面<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/12.png" alt="Druid集群"></li>
+<li>元数据已经刷新<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/13.png" alt="Druid集群"></li>
+</ol>
+<h1 id="SuperSet生成图表"><a href="#SuperSet生成图表" class="headerlink" title="SuperSet生成图表"></a>SuperSet生成图表</h1><ol>
+<li>新建一个图表<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/14.png" alt="生成图表"></li>
+<li>选择刚才创建好的Druid数据源，默认是选择table，你也可以选择其他的图表，点击创建<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/15.png" alt="生成图表"></li>
+<li>之后会自动跳转到编辑界面<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/16.png" alt="生成图表"></li>
+<li>完成后点击save，这里可以选择是否添加到仪表盘，这里选择保存并转到仪表盘<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/17.png" alt="生成图表"></li>
+<li>进入仪表盘<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/18.png" alt="生成图表"></li>
+<li>可以看见新创建的图表了<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/19.png" alt="生成图表"></li>
+</ol>
+<h1 id="SuperSet-API"><a href="#SuperSet-API" class="headerlink" title="SuperSet API"></a>SuperSet API</h1><h2 id="API参数总览"><a href="#API参数总览" class="headerlink" title="API参数总览"></a>API参数总览</h2><table>
+<thead>
+<tr>
+<th align="center">parameter name</th>
+<th align="center">description</th>
+<th align="center">type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">datasource</td>
+<td align="center">数据源</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">viz_type</td>
+<td align="center">图表类型</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">granularity_sqla</td>
+<td align="center">时间字段</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">time_grain_sqla</td>
+<td align="center">时间粒度</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">time_range</td>
+<td align="center">时间范围</td>
+<td align="center">datetime</td>
+</tr>
+<tr>
+<td align="center">entity</td>
+<td align="center">实体，每个图表类型这个值不一样</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">country_fieldtype</td>
+<td align="center">国家字段类型（地图图表特有参数）</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">adhoc_filters</td>
+<td align="center">筛选字段</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">show_bubbles</td>
+<td align="center">是否在地图展示数量大于max_bubble_size的国家</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">max_bubble_size</td>
+<td align="center"></td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">standalone</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">图表高度</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">图表宽度</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">aggregate</td>
+<td align="center">统计方法</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:column_name</td>
+<td align="center">数据源的字段名</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:description</td>
+<td align="center">数据源的描述</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:expression</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">column:filterable</td>
+<td align="center">是否启用过滤</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:groupby</td>
+<td align="center">是否启用分组</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:id</td>
+<td align="center">数据源字段ID</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">column:is_dttm</td>
+<td align="center"></td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:optionName</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:python_date_format</td>
+<td align="center">python时间格式</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:type</td>
+<td align="center">字段类型</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:verbose_name</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">expressionType</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">fromFormData</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">hasCustomLabel</td>
+<td align="center">是否使用自定义标题</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">label</td>
+<td align="center">数据标题</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">optionName</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">sqlExpression</td>
+<td align="center">查询有效期</td>
+<td align="center">string</td>
+</tr>
+</tbody></table>
+<h2 id="Chart-API"><a href="#Chart-API" class="headerlink" title="Chart API"></a>Chart API</h2><ul>
+<li>URL: /superset/explore/</li>
+<li>parameter: form_data</li>
+<li>method:  GET</li>
+</ul>
+<ol>
+<li>引用生成好的图表(以地图为例)<br>打开已经创建好的图表，点击右上角的&lt;&gt;按钮,把html放到自己的项目就可以了，适用于固定参数图表<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/20.png" alt="API"></li>
+<li>通过API获取，适用于动态参数图表<br>其中form_data后面是图表的参数<br>上面API转译过来就是<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;10.34.11.179:8080&#x2F;superset&#x2F;explore&#x2F;?</span><br><span class="line">form_data&#x3D;&#123;</span><br><span class="line">	&quot;datasource&quot;: &quot;3__table&quot;,</span><br><span class="line">	&quot;viz_type&quot;: &quot;world_map&quot;,</span><br><span class="line">	&quot;slice_id&quot;: 57,</span><br><span class="line">	&quot;url_params&quot;: &#123;&#125;,</span><br><span class="line">	&quot;granularity_sqla&quot;: &quot;last_update_at&quot;,</span><br><span class="line">	&quot;time_grain_sqla&quot;: null,</span><br><span class="line">	&quot;time_range&quot;: &quot;2010-01-01T00:00:00+:+2020-01-16T00:00:00&quot;,</span><br><span class="line">	&quot;entity&quot;: &quot;country&quot;,</span><br><span class="line">	&quot;country_fieldtype&quot;: &quot;name&quot;,</span><br><span class="line">	&quot;metric&quot;: &#123;</span><br><span class="line">		&quot;aggregate&quot;: &quot;COUNT_DISTINCT&quot;,</span><br><span class="line">		&quot;column&quot;: &#123;</span><br><span class="line">			&quot;column_name&quot;: &quot;hostname&quot;,</span><br><span class="line">			&quot;description&quot;: null,</span><br><span class="line">			&quot;expression&quot;: null,</span><br><span class="line">			&quot;filterable&quot;: true,</span><br><span class="line">			&quot;groupby&quot;: true,</span><br><span class="line">			&quot;id&quot;: 7,</span><br><span class="line">			&quot;is_dttm&quot;: false,</span><br><span class="line">			&quot;optionName&quot;: &quot;_col_hostname&quot;,</span><br><span class="line">			&quot;python_date_format&quot;: null,</span><br><span class="line">			&quot;type&quot;: &quot;VARCHAR(300)&quot;,</span><br><span class="line">			&quot;verbose_name&quot;: null</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;expressionType&quot;: &quot;SIMPLE&quot;,</span><br><span class="line">		&quot;fromFormData&quot;: false,</span><br><span class="line">		&quot;hasCustomLabel&quot;: false,</span><br><span class="line">		&quot;label&quot;: &quot;COUNT_DISTINCT(hostname)&quot;,</span><br><span class="line">		&quot;optionName&quot;: &quot;metric_kjwkqwqukjd_5o8d3equvv5&quot;,</span><br><span class="line">		&quot;sqlExpression&quot;: null</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;adhoc_filters&quot;: [],</span><br><span class="line">	&quot;row_limit&quot;: 10000,</span><br><span class="line">	&quot;show_bubbles&quot;: true,</span><br><span class="line">	&quot;secondary_metric&quot;: &#123;</span><br><span class="line">		&quot;aggregate&quot;: &quot;COUNT_DISTINCT&quot;,</span><br><span class="line">		&quot;column&quot;: &#123;</span><br><span class="line">			&quot;column_name&quot;: &quot;hostname&quot;,</span><br><span class="line">			&quot;description&quot;: null,</span><br><span class="line">			&quot;expression&quot;: null,</span><br><span class="line">			&quot;filterable&quot;: true,</span><br><span class="line">			&quot;groupby&quot;: true,</span><br><span class="line">			&quot;id&quot;: 7,</span><br><span class="line">			&quot;is_dttm&quot;: false,</span><br><span class="line">			&quot;optionName&quot;: &quot;_col_hostname&quot;,</span><br><span class="line">			&quot;python_date_format&quot;: null,</span><br><span class="line">			&quot;type&quot;: &quot;VARCHAR(300)&quot;,</span><br><span class="line">			&quot;verbose_name&quot;: null</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;expressionType&quot;: &quot;SIMPLE&quot;,</span><br><span class="line">		&quot;fromFormData&quot;: false,</span><br><span class="line">		&quot;hasCustomLabel&quot;: false,</span><br><span class="line">		&quot;label&quot;: &quot;COUNT_DISTINCT(hostname)&quot;,</span><br><span class="line">		&quot;optionName&quot;: &quot;metric_n3idgryyr4a_hzn2nydg3gw&quot;,</span><br><span class="line">		&quot;sqlExpression&quot;: null</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;max_bubble_size&quot;: &quot;35&quot;</span><br><span class="line">&#125; &amp; standalone &#x3D; true &amp; height &#x3D; 400</span><br></pre></td></tr></table></figure>
+也可以在图表中获取<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/21.png" alt="配置好的用户名，密码"></li>
+</ol>
+<h2 id="Data-API"><a href="#Data-API" class="headerlink" title="Data API"></a>Data API</h2><p>依靠的sql lab模块的接口</p>
+<ul>
+<li>URL: superset/sql_json/</li>
+<li>method:  POST<br>请求参数<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;client_id: &quot;o5HDMW18&quot;, database_id: 2, json: true, runAsync: false,…&#125;</span><br><span class="line">client_id: &quot;o5HDMW18&quot;</span><br><span class="line">database_id: 2</span><br><span class="line">json: true</span><br><span class="line">runAsync: false</span><br><span class="line">sql: &quot;SELECT &quot;ID&quot;,↵ &quot;UserId&quot;,↵ &quot;Content&quot;,&quot;CreateTime&quot;, &quot;Active&quot;,&quot;AppId&quot;, </span><br><span class="line">&quot;Recommend&quot;,&quot;Like&quot;,&quot;UnLike&quot;,&quot;Funny&quot;,&quot;Label&quot;,&quot;Rate&quot; </span><br><span class="line">FROM business.game_evaluation LIMIT 100&quot;</span><br><span class="line">sql_editor_id: null</span><br><span class="line">tab: &quot;&quot;</span><br><span class="line">select_as_cta: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+返回结果<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;query_id: 28, status: &quot;success&quot;,…&#125;</span><br><span class="line">query_id: 28</span><br><span class="line">status: &quot;success&quot;</span><br><span class="line">data: [&#123;ID: 4, MarkId: 5, UserId: 34, Active: false,</span><br><span class="line">CreateTime: &quot;2020-01-09T14:06:42.352546+08:00&quot;&#125;,…]</span><br><span class="line">columns: [&#123;name: &quot;ID&quot;, agg: &quot;sum&quot;, type: null, is_date: false, is_dim: false&#125;,…]</span><br><span class="line">selected_columns: [&#123;name: &quot;ID&quot;, agg: &quot;sum&quot;, type: null,</span><br><span class="line"> is_date: false, is_dim: false&#125;,…]</span><br><span class="line">expanded_columns: []</span><br><span class="line">query: &#123;changedOn: &quot;2020-02-11T17:22:09.128505&quot;, changed_on:</span><br><span class="line"> &quot;2020-02-11T17:22:09.128505&quot;, dbId: 2, db: &quot;npc&quot;,…&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Superset</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nodejs在各环境下安装步骤</title>
+    <url>/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/</url>
+    <content><![CDATA[<blockquote>
+<p>Mark下nodejs每个环境安装方法<br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/cover.png" alt="nodejs首页"></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h1><ol>
+<li>打开<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">nodejs</a>官网<br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/1.png" alt="nodejs"><br>首页分为两个版本</li>
+</ol>
+<ul>
+<li>长期支持版：即稳定版，推荐使用这个</li>
+<li>当前发布版：最新版本，可能会有bug</li>
+</ul>
+<ol start="2">
+<li>我选择了稳定版，下载下来</li>
+<li>一直next, 选择安装目录安装即可<br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/2.png" alt="nodejs"><br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/3.png" alt="nodejs"><br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/4.png" alt="nodejs"><br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/5.png" alt="nodejs"><br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/6.png" alt="nodejs"><br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/7.png" alt="nodejs"></li>
+<li>验证安装<br>在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口，输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">v12.6.1</span><br><span class="line">$ npm -v</span><br><span class="line">6.13.4</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="Linux下安装"><a href="#Linux下安装" class="headerlink" title="Linux下安装"></a>Linux下安装</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><ol>
+<li>添加node镜像，setup_12.x可以替换为你想要的大版本，比如setup_10.x<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ curl --silent --location https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_12.x | sudo bash</span><br><span class="line">#成功执行会输出下面结果</span><br><span class="line">## Run &#96;sudo yum install -y nodejs&#96; to install Node.js 12.x and npm.</span><br><span class="line">## You may also need development tools to build native addons:</span><br><span class="line">     sudo yum install gcc-c++ make</span><br><span class="line">## To install the Yarn package manager, run:</span><br><span class="line">     curl -sL https:&#x2F;&#x2F;dl.yarnpkg.com&#x2F;rpm&#x2F;yarn.repo | sudo tee &#x2F;etc&#x2F;yum.repos.d&#x2F;yarn.repo</span><br><span class="line">     sudo yum install yarn</span><br></pre></td></tr></table></figure></li>
+<li>安装nodejs<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo yum install -y nodejs</span><br></pre></td></tr></table></figure></li>
+<li>验证安装<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><ol>
+<li>添加nodejs镜像源，setup_12.x可以替换为你想要的大版本，比如setup_10.x<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_12.x | sudo -E bash -</span><br></pre></td></tr></table></figure></li>
+<li>安装<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure></li>
+<li>验证安装<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="通用安装"><a href="#通用安装" class="headerlink" title="通用安装"></a>通用安装</h2><ol>
+<li>进入<a href="https://npm.taobao.org/mirrors/node/" target="_blank" rel="noopener">阿里镜像</a>，选择版本后，进入到下载页面，右键复制下载连接<br><img src="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/8.png" alt="nodejs"></li>
+<li>linux下载<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;v0.12.15&#x2F;node-v0.12.15-linux-x64.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>下载完后解压到/usr/local/<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ tar -xvf node-v0.12.15-linux-x64.tar.xz &#x2F;usr&#x2F;local&#x2F;</span><br></pre></td></tr></table></figure></li>
+<li>讲node-v0.12.15-linux-x64文件夹改名为nodejs<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mv node-v5.10.1-linux-x64&#x2F; nodejs</span><br></pre></td></tr></table></figure></li>
+<li>建立软连接<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;node &#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">$ ln -s &#x2F;usr&#x2F;local&#x2F;nodejs&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">&#96;&#96;</span><br><span class="line">3. 验证安装</span><br></pre></td></tr></table></figure>
+$ node -v<br>$ npm -v<pre><code></code></pre></li>
+</ol>
+<h1 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h1><p>留坑。。。</p>
+]]></content>
+      <categories>
+        <category>通用</category>
+      </categories>
+      <tags>
+        <tag>Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pentaho-初识开源大数据平台</title>
+    <url>/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</url>
+    <content><![CDATA[<p><img src="/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/1.jfif" alt="pentaho"></p>
+<a id="more"></a>
+
+<h1 id="什么是Pentaho"><a href="#什么是Pentaho" class="headerlink" title="什么是Pentaho"></a>什么是Pentaho</h1><blockquote>
+<p><a href="https://www.hitachivantara.com/zh-cn/products/data-management-analytics/pentaho-platform.html" target="_blank" rel="noopener">Pentaho</a>是世界上最流行的开源商务智能软件,以工作流为核心的，强调面向解决方案而非工具组件的，基于java平台的商业智能(Business Intelligence,BI)套件BI，之所以说是套件是因为它包括一个web server平台和几个工具软件：报表，分析，图表，数据集成，数据挖掘等，可以说包括了商务智能的方方面面。它整合了多个开源项目，目标是和商业BI相抗衡。它偏向于与业务流程相结合的BI解决方案，侧重于大 中型企业应用。它允许商业分析人员或开发人员创建报表，仪表盘，分析模型，商业规则和 BI 流程</p>
+</blockquote>
+<h1 id="Pentaho三大套件"><a href="#Pentaho三大套件" class="headerlink" title="Pentaho三大套件"></a>Pentaho三大套件</h1><h2 id="1-Pentaho-Data-Integration"><a href="#1-Pentaho-Data-Integration" class="headerlink" title="1.Pentaho Data Integration"></a>1.Pentaho Data Integration</h2><blockquote>
+<p>PDI是一个ETL工具。PDI由纯java编写，支持图形化的GUI设计界面，然后可以以工作流的形式流转，在做一些简单或复杂的数据抽取、质量检测、数据清洗、数据转换、数据过滤等方面有着比较稳定的表现，其中最主要的我们通过熟练的应用它，减少了非常多的研发工作量，提高了我们的工作效率.</p>
+</blockquote>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>PDI的前身为kettle，是一款使用广泛的ETL工具，后被日立收购并整合进Hitachi Vantara, 并改名为 Pentaho data integration<br>PDI存在两种文件,一种是作业(.kjb)，一种是转换(.ktr)。作业是调度的单元,转换运行在作业里面，转换完成针对数据的基础转换，作业则完成整个工作流的控制</p>
+<p><img src="/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/2.png" alt="pentaho"></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>免费开源</li>
+<li>多平台,易配置</li>
+<li>支持关系型数据库和非关系型数据库</li>
+<li>通过图形界面设计实现做什么业务，无需写代码去实现，kettle提供了大量的组件给我们去实现业务逻辑</li>
+<li>定时功能</li>
+<li>多种数据源类型</li>
+<li>抽取速度快</li>
+</ul>
+<h2 id="2-Pentaho-Report-Designer"><a href="#2-Pentaho-Report-Designer" class="headerlink" title="2.Pentaho Report Designer"></a>2.Pentaho Report Designer</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>Pentaho Report Designer（以下简称PRD）是Pentaho开源系统中的数据报表模块，只要设置好数据源，通过拖拉的方式就可以设计出美观的商业报表</p>
+<p><img src="/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/6.png" alt="pentaho"></p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>免费开源</li>
+<li>多平台</li>
+<li>支持关系型数据库和非关系型数据库</li>
+<li>图形界面设计报表</li>
+</ul>
+<h2 id="3-Pentaho-Business-Analytics"><a href="#3-Pentaho-Business-Analytics" class="headerlink" title="3.Pentaho Business Analytics"></a>3.Pentaho Business Analytics</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>Pentaho Business Analytics（以下简称PBA）是Pentaho开源系统中的商业BI平台，他能调度PDI的作业，打开PRD的报表，还提供了数据服务(CDA)，仪表盘设计及展示(CDE)，用户权限认证等功能。PDI运行在Tomcat上，作为Web服务对外提供服务。pba上的文件加密存储在资源库中，能保证不同pba服务的文件一致</p>
+<p><img src="/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/7.png" alt="pentaho"></p>
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>免费开源</li>
+<li>多平台</li>
+<li>支持关系型数据库和非关系型数据库</li>
+<li>图形界面设计仪表盘</li>
+<li>能定时调度PDI作业</li>
+<li>能展示PRD报表</li>
+<li>能提供数据服务(API)</li>
+<li>能设置访问权限</li>
+<li>能管理作业，报表，仪表盘数据</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Pentaho</tag>
+        <tag>Kettle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python在各环境下安装步骤</title>
+    <url>/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/</url>
+    <content><![CDATA[<blockquote>
+<p>日常在不同系统下开发，经常要装不同系统下的python，记性也不好，Mark下每个环境安装方法<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/cover.png" alt="python首页"></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>日常在不同系统下开发，经常要装不同系统下的python，记性也不好，Mark下每个环境安装方法</p>
+</blockquote>
+<h1 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h1><ol>
+<li>进入<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">Python</a>官网下载<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/1.png" alt="python首页"><br>官网提供了两种系统位数</li>
+</ol>
+<ul>
+<li>X86：32位系统</li>
+<li>X86-64：64位系统<br>官网提供了三种版本</li>
+<li>web-based: 透过网络安装的，就是执行安装后才透过网络下载python</li>
+<li>executable: 可執行文件的，既把要安装的python全部下载好在本机安装</li>
+<li>embeddable zipfile: zip 压缩档，就是python打包成zip压缩包</li>
+</ul>
+<ol start="2">
+<li>我选择了3.8.1，下载完打开<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/2.png" alt="python安装1"></li>
+</ol>
+<p><strong>勾选上 Add Python 3.X to PATH</strong><br>这样就不用配置环境变量<br>如果想安装在C盘则选择 Install Now<br>否则选择 Customize installation<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/3.png" alt="python安装1"><br>3. 选择好安装路径, 安装就好了<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/4.png" alt="python安装1"><br>4. 验证Python是否安装成功<br>打开CMD,输入下面代码，返回版本号则成功安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 3.8.1</span><br><span class="line">$ pip -V</span><br><span class="line">pip 19.2.3 from J:\Anaconda3\lib\site-packages\pip (python 3.7)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Linux下安装"><a href="#Linux下安装" class="headerlink" title="Linux下安装"></a>Linux下安装</h1><p>Linux下安装python有两种方式</p>
+<ul>
+<li>通过yum，apt等工具安装：方便快捷，但是可选版本很少</li>
+<li>通过解压安装：操作比较麻烦，但是可以选择任意版本<h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><blockquote>
+<p>CentOs默认安装了python2.7，CentOS用python2和python3 命令来区分不同版本的python</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>添加阿里镜像<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;epel.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;epel-7.repo</span><br></pre></td></tr></table></figure></li>
+<li>安装python3.6.8<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python36 -y</span><br></pre></td></tr></table></figure></li>
+<li>安装Pip3<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 搜索pip3的安装包名称</span><br><span class="line">yum  whatprovides pip3</span><br><span class="line"> </span><br><span class="line"># 安装pip3</span><br><span class="line">yum install python36-pip -y</span><br></pre></td></tr></table></figure></li>
+<li>验证<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 --version</span><br><span class="line">pip3 -V</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><ol>
+<li>安装Python工具<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-software-properties</span><br></pre></td></tr></table></figure></li>
+<li>添加仓库镜像源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fkrull&#x2F;deadsnakes</span><br></pre></td></tr></table></figure></li>
+<li>更新源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></li>
+<li>安装python<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3.6</span><br></pre></td></tr></table></figure></li>
+<li>验证<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python --version</span><br><span class="line">#或则</span><br><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="通用Linux安装"><a href="#通用Linux安装" class="headerlink" title="通用Linux安装"></a>通用Linux安装</h2><ol>
+<li>首先先获取安装包，打开<a href="https://www.python.org/ftp/python/" target="_blank" rel="noopener">pythonFtp</a>,选择需要安装的版本<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/5.png" alt="python安装1"></li>
+<li>一般选择.tar.xz位后缀的文件，右键复制链接地址<br><img src="/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/6.png" alt="python安装1"></li>
+<li>在CentOs下,这里选择3.7.1版本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.7.1&#x2F;Python-3.7.1.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li>解压<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xvf Python-3.7.2.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li>创建编译安装目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;local&#x2F;python3</span><br></pre></td></tr></table></figure></li>
+<li>安装<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd Python-3.7.2</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;python3</span><br><span class="line">#测试</span><br><span class="line">make test</span><br><span class="line">#安装</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></li>
+<li>创建软连接<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;python3 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;python3&#x2F;bin&#x2F;pip3 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;pip3</span><br></pre></td></tr></table></figure></li>
+<li>验证是否安装成功<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 -V</span><br><span class="line">pip3 -V</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h1><p>留坑。。。。</p>
+]]></content>
+      <categories>
+        <category>通用</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Superset-打包分发与集群部署</title>
+    <url>/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>superset通常需要二次开发，文件介绍如何打包部署二次开发后的superset<br><img src="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Linux</li>
+<li><input checked disabled type="checkbox"> Mac OS</li>
+<li><input checked disabled type="checkbox"> Windows<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1></li>
+<li><input checked disabled type="checkbox"> python3.6~</li>
+<li><input checked disabled type="checkbox"> pip~</li>
+<li><input checked disabled type="checkbox"> setuptools~</li>
+<li><input checked disabled type="checkbox"> nodejs 12.15.0~<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1></li>
+<li>centos-7-minimal</li>
+<li>python3.68</li>
+<li>setuptools~</li>
+<li>pip~</li>
+<li>nodejs 12.16.1~</li>
+</ul>
+<h1 id="SuperSet打包"><a href="#SuperSet打包" class="headerlink" title="SuperSet打包"></a>SuperSet打包</h1><blockquote>
+<p>Python的模块或者源文件直接可以复制到目标项目目录中，就可以导入使用了。但是为了更多项目调用使用，或者共享给别人，就需要打包，或发布到网络，以便供人使用。目的也是为了复用。</p>
+</blockquote>
+<h2 id="修改setpu-py"><a href="#修改setpu-py" class="headerlink" title="修改setpu.py"></a>修改setpu.py</h2><ol>
+<li>进入superset根目录<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &#x2F;work&#x2F;test2&#x2F;incubator-superset&#x2F;</span><br></pre></td></tr></table></figure></li>
+<li>修改setup.py文件<br><img src="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/1.png" alt="setup.py文件"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ vi setup.py</span><br></pre></td></tr></table></figure>
+找到下面代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setup(</span><br><span class="line">    name&#x3D;&quot;apache-superset&quot;,</span><br><span class="line">    description&#x3D;(&quot;A modern, enterprise-ready business intelligence web application&quot;),</span><br><span class="line">    long_description&#x3D;long_description,</span><br><span class="line">    long_description_content_type&#x3D;&quot;text&#x2F;markdown&quot;,</span><br><span class="line">    version&#x3D;version_string,</span><br><span class="line">    packages&#x3D;find_packages(),</span><br><span class="line">    include_package_data&#x3D;True,</span><br><span class="line">    zip_safe&#x3D;False,</span><br><span class="line">    scripts&#x3D;[&quot;superset&#x2F;bin&#x2F;superset&quot;],</span><br><span class="line">    install_requires&#x3D;[</span><br><span class="line">        &quot;backoff&gt;&#x3D;1.8.0&quot;,</span><br><span class="line">        &quot;bleach&gt;&#x3D;3.0.2, &lt;4.0.0&quot;,</span><br><span class="line">    ---------------省略----------------</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>name修改为二次开发项目的名称，也是上传到Pipy的包名，如果需要上传到Pypi，命名前先在pipy查询一下防止重名。</strong><br><strong>version修改为二次开发项目的版本号</strong><br><strong>install_requires下增加二次开发中需要用到的包</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setup(</span><br><span class="line">    #修改</span><br><span class="line">    name&#x3D;&quot;zjft-superset&quot;,</span><br><span class="line">    description&#x3D;(&quot;A modern, enterprise-ready business intelligence web application&quot;),</span><br><span class="line">    long_description&#x3D;long_description,</span><br><span class="line">    long_description_content_type&#x3D;&quot;text&#x2F;markdown&quot;,</span><br><span class="line">    #修改,本例没有修改版本号</span><br><span class="line">    version&#x3D;version_string,</span><br><span class="line">    packages&#x3D;find_packages(),</span><br><span class="line">    include_package_data&#x3D;True,</span><br><span class="line">    zip_safe&#x3D;False,</span><br><span class="line">    scripts&#x3D;[&quot;superset&#x2F;bin&#x2F;superset&quot;],</span><br><span class="line">    install_requires&#x3D;[</span><br><span class="line">        &quot;backoff&gt;&#x3D;1.8.0&quot;,</span><br><span class="line">        &quot;bleach&gt;&#x3D;3.0.2, &lt;4.0.0&quot;,</span><br><span class="line">    ---------------省略----------------</span><br></pre></td></tr></table></figure>
+<p>修改完后保存</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#shift+: 进入命令模式</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+<h2 id="编译前端"><a href="#编译前端" class="headerlink" title="编译前端"></a>编译前端</h2><ol>
+<li><p>进入asset目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &#x2F;work&#x2F;test2&#x2F;incubator-superset&#x2F;superset&#x2F;assets</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="开始打包"><a href="#开始打包" class="headerlink" title="开始打包"></a>开始打包</h2><ol>
+<li><p>进入superset根目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &#x2F;work&#x2F;test2&#x2F;incubator-superset&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开始打包，有两种方式可以选择<br>（1）打包成wheel (推荐)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python setup.py bdist_wheel</span><br></pre></td></tr></table></figure>
+<p>（2）打包成tar</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python setup.py sdist</span><br></pre></td></tr></table></figure>
+<p>打包完成后会自动创建一个dist文件夹，里面存放打包好的文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ls</span><br><span class="line">zjft_superset-0.35.2-py3-none-any.whl  zjft-superset-0.35.2.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="SuperSet分发"><a href="#SuperSet分发" class="headerlink" title="SuperSet分发"></a>SuperSet分发</h1><h2 id="手动分发"><a href="#手动分发" class="headerlink" title="手动分发"></a>手动分发</h2><p>将生成好的安装手动上传到服务器</p>
+<h2 id="网络分发"><a href="#网络分发" class="headerlink" title="网络分发"></a>网络分发</h2><h3 id="方式1-将包上传到自建的文件服务器"><a href="#方式1-将包上传到自建的文件服务器" class="headerlink" title="方式1.将包上传到自建的文件服务器"></a>方式1.将包上传到自建的文件服务器</h3><p><img src="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/2.png" alt="分发1"></p>
+<h3 id="方式2-将包上传到pypi"><a href="#方式2-将包上传到pypi" class="headerlink" title="方式2.将包上传到pypi"></a>方式2.将包上传到pypi</h3><p>ps: 上传到pypi的包可以被所有人下载<br>(1) 首先进入<a href="https://pypi.org" target="_blank" rel="noopener">pypi官网</a>，注册一个账号<br>(2)  打开cmd命令行输入以下命令 安装 twine 第三方模块</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install twine</span><br></pre></td></tr></table></figure>
+<p>(3)   上传<br>期间如无配置文件会让你输入注册的用户名和密码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &#x2F;work&#x2F;test2&#x2F;incubator-superset&#x2F;</span><br><span class="line">$ twine upload dist&#x2F;*</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="SuperSet安装"><a href="#SuperSet安装" class="headerlink" title="SuperSet安装"></a>SuperSet安装</h1><h2 id="创建python虚拟环境"><a href="#创建python虚拟环境" class="headerlink" title="创建python虚拟环境"></a>创建python虚拟环境</h2><blockquote>
+<p>python3自带venv模块创建虚拟环境，使用虚拟环境隔离本身系统的环境，方便测试是否安装成功</p>
+</blockquote>
+<ol>
+<li>创建虚拟环境<br>myven为虚拟环境名，运行后会自动创建一个myven文件夹<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;</span><br><span class="line">python3 -m venv venv myven</span><br></pre></td></tr></table></figure></li>
+<li>激活虚拟环境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;</span><br><span class="line">. .&#x2F;myven&#x2F;bin&#x2F;activate</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>激活虚拟环境后命令行将变为（myven）</strong></p>
+<h2 id="手动分发安装方式"><a href="#手动分发安装方式" class="headerlink" title="手动分发安装方式"></a>手动分发安装方式</h2><p>进入到安装文件目录，执行pip安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip install superset-0.35.2-py3-none-any.whl</span><br></pre></td></tr></table></figure>
+<p>如果是打包tar，则需要先解压</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ tar -zxvf zjft-superset-0.35.2.tar.gz</span><br><span class="line">$ cd zjft-superset-0.35.2</span><br><span class="line">$ python setup.py install</span><br></pre></td></tr></table></figure>
+<h2 id="网络分发安装方式"><a href="#网络分发安装方式" class="headerlink" title="网络分发安装方式"></a>网络分发安装方式</h2><p>如果是自建文件服务器，则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip install http:&#x2F;&#x2F;10.34.1.9&#x2F;pkgs&#x2F;superset-zijin&#x2F;zjft_superset-0.35.2-py3-none-any.whl</span><br></pre></td></tr></table></figure>
+<p>如果是上传到pipy的包,则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install zjft-superset</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证是否安装成功"><a href="#验证是否安装成功" class="headerlink" title="验证是否安装成功"></a>验证是否安装成功</h2><p>如果安装过程无报错，运行下面命令启动服务器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">superset run</span><br></pre></td></tr></table></figure>
+<p>如果无报错则安装成功</p>
+<h1 id="部署Superset单机服务"><a href="#部署Superset单机服务" class="headerlink" title="部署Superset单机服务"></a>部署Superset单机服务</h1><blockquote>
+<p>Gunicorn(独角兽)是一个unix上被广泛使用的高性能的Python WSGI UNIX HTTP Server。和大多数的web框架兼容，并具有实现简单，轻量级，高性能等特点。<br>supset可以运行在nginx，tomcat，gunicorn中，本例使用gunicorn作为服务器容器</p>
+</blockquote>
+<ol>
+<li>安装相应python包<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install gevent</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure></li>
+<li>启动服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gunicorn -w 2 -k gevent --timeout 60 -b 0.0.0.0:9000</span><br><span class="line">--limit-request-line 0 --limit-request-field-size 0 superset:app</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>-w: 进程的数量<br>-k：工作模式，这里选择gevent，如果选择其他工作模式需要安装其他pythton包<br>–timeout：超时秒数<br>-b:访问地址<br>–limit-request-line：HTTP请求行的最大大小，此参数用于限制HTTP请求行的允许大小，默认情况下，这个值为4094。值是0~8190的数字。此参数可以防止任何DDOS攻击<br>–limit-request-field-size：限制HTTP请求中请求头的大小，默认情况下这个值为8190。值是一个整数或者0，当该值为0时，表示将对请求头大小不做限制<br>运行成功后打开 <a href="http://ip:9000即可">http://ip:9000即可</a></p>
+<h1 id="部署Superset集群服务"><a href="#部署Superset集群服务" class="headerlink" title="部署Superset集群服务"></a>部署Superset集群服务</h1><h2 id="1-安装Nginx"><a href="#1-安装Nginx" class="headerlink" title="1. 安装Nginx"></a>1. 安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install nginx # 安装 nginx</span><br><span class="line">$ sudo yum remove nginx # 卸载 nginx</span><br></pre></td></tr></table></figure>
+<p>如果出现下面错误</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost yum.repos.d]# yum install nginx</span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">没有可用软件包 nginx。</span><br><span class="line">错误：无须任何处理</span><br></pre></td></tr></table></figure>
+<p>yum添加nginx源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ rpm -ivh http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;centos&#x2F;7&#x2F;noarch&#x2F;RPMS&#x2F;nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-测试nginx是否安装成功"><a href="#2-测试nginx是否安装成功" class="headerlink" title="2.测试nginx是否安装成功"></a>2.测试nginx是否安装成功</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ service nginx status</span><br></pre></td></tr></table></figure>
+<p>其他命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ systemctl enable nginx # 设置开机启动</span><br><span class="line">$ service nginx start # 启动nginx服务</span><br><span class="line">$ service nginx stop # 停止nginx服务</span><br><span class="line">$ service nginx status # 查看nginx服务</span><br><span class="line">$ service nginx restart # 重启nginx服务</span><br><span class="line">$ service nginx reload # 重新加载配置，一般是在修改过nginx配置文件时使用。</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-启动nginx"><a href="#3-启动nginx" class="headerlink" title="3. 启动nginx"></a>3. 启动nginx</h2><p><strong>nginx默认启动80端口，先确保80端口没有被占用</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+<p>打开<a href="http://ip,就能看见Nginx的Hello" target="_blank" rel="noopener">http://ip,就能看见Nginx的Hello</a> world</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Welcome to nginx!</span><br><span class="line">If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</span><br><span class="line"></span><br><span class="line">For online documentation and support please refer to nginx.org.</span><br><span class="line">Commercial support is available at nginx.com.</span><br><span class="line"></span><br><span class="line">Thank you for using nginx.</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改nginx配置"><a href="#4-修改nginx配置" class="headerlink" title="4. 修改nginx配置"></a>4. 修改nginx配置</h2><p>nginx的配置文件默认在/etc/nginx/conf.d/default.conf,修改该文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ vi &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf</span><br></pre></td></tr></table></figure>
+<p>文件修改成以下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">upstream web_server &#123;</span><br><span class="line">server 0.0.0.0:9000 weight&#x3D;2;</span><br><span class="line">server 0.0.0.0:9001 weight&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name localhost;</span><br><span class="line"></span><br><span class="line">#charset koi8-r;</span><br><span class="line">#access_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;host.access.log main;</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_set_header Host $host;</span><br><span class="line">proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">proxy_set_header X-Forwraded-For $remote_addr;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;web_server;</span><br><span class="line">add_header backendIP $upstream_addr;</span><br><span class="line">add_header backendCode $upstream_status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#error_page 404 &#x2F;404.html;</span><br><span class="line"></span><br><span class="line">error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>web_server为需要集群的两个superset地址,weight为轮询权重,这里的配置意思是三次请求,有两次会请求到9000,有一次回到9001.<br><strong>add_header与add_header属性会把实际服务器的地址作为header返回，这里为了测试负载均衡是否有效，生产环境必须去掉</strong></p>
+<h2 id="5-重启Nginx"><a href="#5-重启Nginx" class="headerlink" title="5.重启Nginx"></a>5.重启Nginx</h2><p>修改配置后必须重新加载配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service nginx reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-验证Nginx负载均衡"><a href="#6-验证Nginx负载均衡" class="headerlink" title="6.验证Nginx负载均衡"></a>6.验证Nginx负载均衡</h2><p>浏览器里按f12打开开发者工具然后访问<a href="http://10.34.11.62/" target="_blank" rel="noopener">http://10.34.11.62/</a><br>连续按ctrl+f5（强制清除缓存刷新）三次</p>
+<p>可以看见前两次请求的都是9000端口的superset<br><img src="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/3.png" alt="负载均衡"><br>最后一次为9001端口的superset<br><img src="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/4.png" alt="负载均衡"></p>
+<h2 id="7-Nginx负载均衡失败解决方法"><a href="#7-Nginx负载均衡失败解决方法" class="headerlink" title="7.Nginx负载均衡失败解决方法"></a>7.Nginx负载均衡失败解决方法</h2><p>如果连续发送三次请求都只访问同一个server说明负载均衡出现问题，按下面顺序检查问题</p>
+<ol>
+<li>确保集群里的superset都是可用的</li>
+<li>确保配置文件正确并且已经重新加载配置文件</li>
+<li>查看nginx错误日志<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log</span><br></pre></td></tr></table></figure>
+权限错误:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[crit] 2717#2717: *10 connect() to 127.0.0.1:9001 failed (13: Permission denied) while connecting to upstream, client: 10.34.11.33, server: 10.34.11.62, request: &quot;GET &#x2F; HTTP&#x2F;1.1&quot;, upstream: &quot;http:&#x2F;&#x2F;127.0.0.1:9001&#x2F;&quot;, host: &quot;10.34.11.62&quot;</span><br></pre></td></tr></table></figure>
+原因:这是因为SeLinux的限制。</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h3><h4 id="1-关闭SeLinux"><a href="#1-关闭SeLinux" class="headerlink" title="1. 关闭SeLinux"></a>1. 关闭SeLinux</h4><ol>
+<li>临时关闭（不用重启机器）：<br>setenforce 1 设置SELinux 成为enforcing模式<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件需要重启机器：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">修改&#x2F;etc&#x2F;selinux&#x2F;config 文件</span><br><span class="line"></span><br><span class="line">将SELINUX&#x3D;enforcing改为SELINUX&#x3D;disabled</span><br><span class="line"></span><br><span class="line">重启机器即可</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="2-执行下面的命令"><a href="#2-执行下面的命令" class="headerlink" title="2. 执行下面的命令"></a>2. 执行下面的命令</h4><p><code>setsebool -P httpd_can_network_connect 1</code>﻿​</p>
+]]></content>
+      <categories>
+        <category>Big Data</category>
+      </categories>
+      <tags>
+        <tag>Superset</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>起步,想写博客前必看</title>
+    <url>/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/</url>
+    <content><![CDATA[<p>自建博客 OR 第三方博客平台? 博客入坑指南<br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png" alt="Huno"></p>
+<a id="more"></a>
+<h1 id="自建博客-OR-第三方博客平台"><a href="#自建博客-OR-第三方博客平台" class="headerlink" title="自建博客 OR 第三方博客平台"></a>自建博客 OR 第三方博客平台</h1><h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>如果你是只是想找一个平台保存自己的markdown的话,你可以直接使用三方平台<br>第三方博客平台</p>
+<ul>
+<li><a href="https://juejin.im/timeline" target="_blank" rel="noopener">掘金</a></li>
+<li><a href="https://www.oschina.net/" target="_blank" rel="noopener">开源中国</a></li>
+<li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎专栏</a></li>
+<li><a href="https://segmentfault.com/" target="_blank" rel="noopener">思否(SegmentFault)</a></li>
+<li><a href="https://blog.csdn.net/" target="_blank" rel="noopener">CSDN</a></li>
+<li><a href="https://www.cnblogs.com/" target="_blank" rel="noopener">博客园</a></li>
+<li><a href="https://www.jianshu.com/" target="_blank" rel="noopener">简书</a></li>
+<li><a href="https://www.imooc.com/" target="_blank" rel="noopener">慕课网手记</a></li>
+<li><a href="https://cloud.tencent.com/developer" target="_blank" rel="noopener">腾讯云社区</a></li>
+<li><a href="https://yq.aliyun.com/" target="_blank" rel="noopener">阿里云云栖社区</a></li>
+</ul>
+<p>优点:</p>
+<ul>
+<li>搭建成本低</li>
+<li>开箱即用</li>
+<li>无需维护</li>
+<li>seo搜索引擎友好</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>定制化程度低<br>但是博客平台的缺点就是定制化程度低,想打造有特色的博客很难</li>
+</ul>
+<h2 id="自建博客"><a href="#自建博客" class="headerlink" title="自建博客"></a>自建博客</h2><p>如果你不想千篇一律，想打造一个有特色的博客,那么你可以选择自建博客，但是自建博客会比第三方博客平台的成本高一点<br>优点:</p>
+<ul>
+<li>定制化程度高, 能打造有特色的博客</li>
+<li>能接入第三方服务,如广告,打赏,统计等等</li>
+<li>完全的控制权,这里是你的地盘</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>你需要具备一定编程基础</li>
+<li>时间与金钱成本都较高</li>
+</ul>
+<h1 id="三大流行博客"><a href="#三大流行博客" class="headerlink" title="三大流行博客"></a>三大流行博客</h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><blockquote>
+<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>是一个快速、简洁且高效的博客框架。<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<h3 id="Hexo优缺点"><a href="#Hexo优缺点" class="headerlink" title="Hexo优缺点"></a>Hexo优缺点</h3><p>优点：</p>
+<ul>
+<li>搭建的博客平台，速度快，免费，可以搭建在 Github 上。</li>
+<li>操作比 Jekyll 简单，命令少，易于记忆。 </li>
+<li>支持markdown，Hexo最终生成的是一个静态博客，这就意味着它拥有其他博客系统无法比拟的低负载与高速度的特性。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>每次在一台新电脑或者别人电脑首次使用时，都要重新安装和配置编译环境，不适合随时随地愉快的写博客。（不能优雅的装逼，略微不爽）</li>
+<li>相对Wordpress而言，没有强大的后台和插件支持，学习成本较高，需要一些网页基础。</li>
+</ul>
+<h3 id="Hexo主题浏览"><a href="#Hexo主题浏览" class="headerlink" title="Hexo主题浏览"></a>Hexo主题浏览</h3><blockquote>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">传送门:Hexo主题站</a></p>
+</blockquote>
+<h4 id="1-NexT"><a href="#1-NexT" class="headerlink" title="1. NexT"></a>1. <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">NexT</a></h4><blockquote>
+<p>本人最喜欢的主题,简约风格,提供了4种不同的布局,各具特色<br>Demo: <a href="https://muse.theme-next.org/" target="_blank" rel="noopener">Muse</a> <a href="https://mist.theme-next.org/" target="_blank" rel="noopener">mist</a> <a href="https://pisces.theme-next.org/" target="_blank" rel="noopener">Pisces</a> <a href="https://theme-next.org/" target="_blank" rel="noopener">Gemini</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/3.png" alt="NexT"></p>
+</blockquote>
+<h4 id="2-Yun"><a href="#2-Yun" class="headerlink" title="2. Yun"></a>2. <a href="https://yun.yunyoujun.cn/guide/#%E5%8D%87%E7%BA%A7%E4%B8%BB%E9%A2%98" target="_blank" rel="noopener">Yun</a></h4><blockquote>
+<p>这是个二次元主题, 浅色主题，内置后宫页面…….<br>Demo: <a href="https://www.yunyoujun.cn/" target="_blank" rel="noopener">Yun</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/4.png" alt="Yun"></p>
+</blockquote>
+<h4 id="3-Sakura"><a href="#3-Sakura" class="headerlink" title="3. Sakura"></a>3. <a href="https://docs.hojun.cn/sakura/docs/#/" target="_blank" rel="noopener">Sakura</a></h4><blockquote>
+<p>同二次元主题,首页大banner，页面动态效果好<br>Demo: <a href="https://sakura.wallleap.cn/" target="_blank" rel="noopener">wallleap</a> <a href="https://cndrew.cn/" target="_blank" rel="noopener">cndrew</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/5.png" alt="Sakura"></p>
+</blockquote>
+<h4 id="4-Huno"><a href="#4-Huno" class="headerlink" title="4. Huno"></a>4. <a href="https://github.com/letiantian/huno" target="_blank" rel="noopener">Huno</a></h4><blockquote>
+<p>干净的首页,Markdown别具一格<br>Demo: <a href="http://hi.letiantian.me/huno/" target="_blank" rel="noopener">Huno</a><br> <img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/6.png" alt="Huno"></p>
+</blockquote>
+<h4 id="5-Material"><a href="#5-Material" class="headerlink" title="5. Material"></a>5. <a href="https://github.com/bolnh/hexo-theme-material#demo-%E6%BC%94%E7%A4%BA" target="_blank" rel="noopener">Material</a></h4><blockquote>
+<p>优雅、纯粹、质感<br>Demo: <a href="https://liyin.date/" target="_blank" rel="noopener">Material</a><br> <img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/1.jpg" alt="Huno"></p>
+</blockquote>
+<h2 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h2><blockquote>
+<p><a href="http://jekyllcn.com/" target="_blank" rel="noopener">jekyll</a>是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。</p>
+</blockquote>
+<h3 id="Jekyll优缺点"><a href="#Jekyll优缺点" class="headerlink" title="Jekyll优缺点"></a>Jekyll优缺点</h3><p>优点：</p>
+<ul>
+<li>jekyll是一个静态文件生成器，网站不需要数据库，只要把自己的博客放到对应的目录即可。</li>
+<li>能部署到github或者gitcafe上，不需要自己的vps，因为是静态的，迁移起来非常方便。</li>
+<li>原生支持markdown。现在github默认支持jekyll, 所以原生的文件如果放到github上，它会自动帮你生成静态网站。</li>
+<li>相对hexo而言，可以直接在github网页版上编辑和发布博客，PC间切换和同步非常方便。（这点本人非常喜欢）</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>jekyll用的liquid语法确实不是对程序员友好的，。不过jekyll功能比hexo强大很多，有时间折腾的可以选它。</li>
+<li>相对Wordpress而言，没有强大的后台和插件支持，学习成本较高，需要一些网页基础。</li>
+</ul>
+<h3 id="Jekyll主题浏览"><a href="#Jekyll主题浏览" class="headerlink" title="Jekyll主题浏览"></a>Jekyll主题浏览</h3><blockquote>
+<p><a href="http://jekyllthemes.org/" target="_blank" rel="noopener">传送门:Jekyll主题站</a></p>
+</blockquote>
+<h4 id="1-Wu-Kan"><a href="#1-Wu-Kan" class="headerlink" title="1. Wu-Kan"></a>1. <a href="https://github.com/wu-kan/wu-kan.github.io" target="_blank" rel="noopener">Wu-Kan</a></h4><blockquote>
+<p>wukan大佬的主题,二次元风格,相信我,进去后你会爱上这个主题的<br>Demo: <a href="https://jekyll-theme-wuk.wu-kan.cn/#/2/1" target="_blank" rel="noopener">Wu-Kan</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/7.png" alt="Huno"></p>
+</blockquote>
+<h4 id="2-码志"><a href="#2-码志" class="headerlink" title="2. 码志"></a>2. <a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" rel="noopener">码志</a></h4><blockquote>
+<p>简约,极速,响应式<br>Demo: <a href="https://mazhuang.org/" target="_blank" rel="noopener">码志</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/8.png" alt="码志"></p>
+</blockquote>
+<h4 id="3-MDUI"><a href="#3-MDUI" class="headerlink" title="3. MDUI"></a>3. <a href="https://github.com/KeJunMao/jekyll-theme-mdui#demo" target="_blank" rel="noopener">MDUI</a></h4><blockquote>
+<p>界面比较可爱,色彩搭配也很棒<br>Demo: <a href="https://blog.kejun.me/" target="_blank" rel="noopener">MDUI</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/9.png" alt="码志"></p>
+</blockquote>
+<h2 id="WordPress"><a href="#WordPress" class="headerlink" title="WordPress"></a>WordPress</h2><blockquote>
+<p><a href="http://codex.wordpress.org.cn/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">WordPress</a>是一种使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。<br>用户可以在支持 PHP 和 MySQL数据库的服务器上使用自己的博客。<br>WordPress有许多第三方开发的免费模板，安装方式简单易用。不过要做一个自己的模板，则需要你有一定的专业知识。<br>比如你至少要懂的标准通用标记语言下的一个应用HTML代码、CSS、PHP等相关知识。</p>
+</blockquote>
+<h3 id="WordPress优缺点"><a href="#WordPress优缺点" class="headerlink" title="WordPress优缺点"></a>WordPress优缺点</h3><p>优点：</p>
+<ul>
+<li><p>安装简单方便，甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省了。</p>
+</li>
+<li><p>功能强大，可扩展性高，丰富的插件使用起来更加方便。</p>
+</li>
+<li><p>wordpress搭建的博客对seo搜索引擎友好，收录也快，排名靠前。</p>
+</li>
+<li><p>缺点：</p>
+</li>
+<li><p>对域名空间要求，wp需要自己购买虚拟主机，低配版大概两百多块。</p>
+</li>
+<li><p>迁移成本高，且插件装多了会变慢。</p>
+</li>
+<li><p>Wordpress对于中小型网站应该是不错的选择，但对于大型的门户网站，数据库、用户管理、内容的分类管理等方面的限制，还是会让Wordpress会有些力不从心的吧。</p>
+</li>
+</ul>
+<h3 id="WordPress主题浏览"><a href="#WordPress主题浏览" class="headerlink" title="WordPress主题浏览"></a>WordPress主题浏览</h3><blockquote>
+<p>其实WordPress没啥好说的了,因为模板太多了.<br><a href="https://www.iztwp.com/theme" target="_blank" rel="noopener">传送门:WordPress主题站</a></p>
+</blockquote>
+<h4 id="1-MDx"><a href="#1-MDx" class="headerlink" title="1. MDx"></a>1. <a href="http://www.2zzt.com/bokezhuti/9002.html" target="_blank" rel="noopener">MDx</a></h4><blockquote>
+<p>多种主题颜色与样式，夜间模式，卡片风格<br>Demo: <a href="http://www.2zzt.com/dome.php?id=9002" target="_blank" rel="noopener">MDx</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/10.png" alt="Huno"></p>
+</blockquote>
+<h4 id="2-Kratos"><a href="#2-Kratos" class="headerlink" title="2. Kratos"></a>2. <a href="http://www.2zzt.com/bokezhuti/9225.html" target="_blank" rel="noopener">Kratos</a></h4><blockquote>
+<p>多种主题颜色与样式，夜间模式，卡片风格<br>Demo: <a href="http://www.2zzt.com/dome.php?id=9225" target="_blank" rel="noopener">Kratos</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png" alt="Huno"></p>
+</blockquote>
+<h1 id="如何选择合适的博客框架"><a href="#如何选择合适的博客框架" class="headerlink" title="如何选择合适的博客框架"></a>如何选择合适的博客框架</h1><p>当你选择自建博客后，接下来就是选择合适的博客框架,下面是以上博客框架对比</p>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>编程语言</th>
+<th>主题数量</th>
+<th>开发难度</th>
+<th>是否需要服务器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hexo</td>
+<td>node.js</td>
+<td>较少</td>
+<td>中等</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>Jekyll</td>
+<td>ruby</td>
+<td>多</td>
+<td>较难</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>WordPress</td>
+<td>PHP</td>
+<td>很多</td>
+<td>容易</td>
+<td>需要</td>
+</tr>
+</tbody></table>
+<p>大家可以根据自己的情况来选择适合框架，下面是送给选择困难症小伙伴的几种方法</p>
+<ol>
+<li>省事流: 根据本身技能选择,如果你本身就会PHP那么你大可以选择WP, 这样能节省不少时间</li>
+<li>省钱流: 如果你不想花费任何成本来购买服务器或者域名, 那么你可以选择Hexo或者Jekyll</li>
+<li>任性流; 在选择前你可以去看看每个框架有哪些主题，选择你喜欢的主题的框架。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Jekyll</tag>
+        <tag>WordPress</tag>
+      </tags>
+  </entry>
+</search>

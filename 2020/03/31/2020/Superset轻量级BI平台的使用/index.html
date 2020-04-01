@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Superset-轻量级BI平台的使用: 配置数据源，新增图表，api….">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Superset-轻量级BI平台的使用">
+<meta property="og:url" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Lucas Home">
+<meta property="og:description" content="Superset-轻量级BI平台的使用: 配置数据源，新增图表，api….">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/cover.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/1.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/2.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/3.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/4.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/5.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/6.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/7.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/8.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/9.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/10.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/11.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/12.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/13.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/14.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/15.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/16.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/17.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/18.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/19.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/20.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/21.png">
+<meta property="article:published_time" content="2020-03-31T13:26:02.000Z">
+<meta property="article:modified_time" content="2020-03-31T16:11:22.403Z">
+<meta property="article:author" content="Lucas">
+<meta property="article:tag" content="Superset">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/cover.png">
+
+<link rel="canonical" href="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Superset-轻量级BI平台的使用 | Lucas Home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Lucas Home" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Lucas Home</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">乱七八糟的地方藏着乱七八糟的梦</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/15015070064" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lucas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lucas Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Superset-轻量级BI平台的使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-31 21:26:02" itemprop="dateCreated datePublished" datetime="2020-03-31T21:26:02+08:00">2020-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 00:11:22" itemprop="dateModified" datetime="2020-04-01T00:11:22+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Superset-轻量级BI平台的使用: 配置数据源，新增图表，api….<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/cover.png" alt="cover"></p>
+<a id="more"></a>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><ul>
+<li><input checked disabled type="checkbox"> Linux</li>
+<li><input checked disabled type="checkbox"> Mac OS</li>
+<li><input checked disabled type="checkbox"> Windows</li>
+</ul>
+<h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+<li><input checked disabled type="checkbox"> Python3.6~</li>
+<li><input checked disabled type="checkbox"> Pip~</li>
+<li><input checked disabled type="checkbox"> Setuptools~</li>
+</ul>
+<h1 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h1><ul>
+<li>Windows10</li>
+<li>python3.68</li>
+<li>pip~</li>
+<li>setuptools~</li>
+</ul>
+<h1 id="什么是SuperSet"><a href="#什么是SuperSet" class="headerlink" title="什么是SuperSet"></a>什么是SuperSet</h1><blockquote>
+<p>Superset 是 Airbnb 开源的大数据可视化平台，其特性包括：<br>• backend 支持几乎所有主流的数据库<br>• 支持复杂的权限控制和管理(OpenId, OAuth 等)，满足企业内部不同部门人员对数据的权限要求<br>• 丰富的可视化展示，支持自定义创建 dashboard，可分享<br>• 可扩展、细粒度的数据库权限控制，满足不同层级人员对数据库权限的要求<br>• 数据的展示完全可控，可自定义展示字段、聚合数据、数据源等<br>• 深度集成 Druid.io</p>
+</blockquote>
+<h1 id="SuperSet安装"><a href="#SuperSet安装" class="headerlink" title="SuperSet安装"></a>SuperSet安装</h1><blockquote>
+<p>Superset已弃用对Python的2.*支持，仅支持~=3.6利用Python的新功能并减少支持以前版本的负担。我们针对来运行我们的测试套件3.6，但3.7也完全受支持</p>
+</blockquote>
+<h2 id="创建Python3虚拟环境"><a href="#创建Python3虚拟环境" class="headerlink" title="创建Python3虚拟环境"></a>创建Python3虚拟环境</h2><blockquote>
+<p>python3 自带venv模块创建虚拟环境</p>
+</blockquote>
+<ol>
+<li>创建虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;</span><br><span class="line">python3 -m venv venv</span><br></pre></td></tr></table></figure></li>
+<li>激活虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">. &#x2F;opt&#x2F;venv&#x2F;bin&#x2F;activate</span><br><span class="line">venv\Scripts\activate</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>激活虚拟环境后命令行将变为（venv）</strong></p>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="Debian和Ubuntu"><a href="#Debian和Ubuntu" class="headerlink" title="Debian和Ubuntu"></a>Debian和Ubuntu</h3><p>以下命令将确保已安装必需的依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev libffi-dev python-dev python-pip </span><br><span class="line">libsasl2-dev libldap2-dev</span><br></pre></td></tr></table></figure>
+<p>Ubuntu 18.04如果在Ubuntu 18.04 LTS上默认将python3.6和python2.7一起安装，请同时运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libssl-dev </span><br><span class="line">libffi-dev python3.6-dev python-pip libsasl2-dev libldap2-dev</span><br></pre></td></tr></table></figure>
+<h3 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统:"></a>其他linux系统:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum upgrade python-setuptools  </span><br><span class="line">sudo yum install gcc gcc-c++ libffi-devel python-devel python-pip python-wheel </span><br><span class="line">openssl-devel cyrus-sasl-devel openldap-devel</span><br></pre></td></tr></table></figure>
+<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><p>Mac OS X如果可能，您应该升级到最新版本的OS X，因为该版本更有可能解决问题。您可能需要适用于已安装的OS X版本的最新版本的XCode。还应该安装XCode命令行工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>目前尚不正式支持Windows，但如果要尝试使用Windows，请下载get-pip.py并运行，可能需要管理员权限。然后运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cryptography</span><br></pre></td></tr></table></figure>
+
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="1-安装superset"><a href="#1-安装superset" class="headerlink" title="1. 安装superset"></a>1. 安装superset</h3><p>从阿里云镜像里下载速度会快很多，等待pip安装完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install apache-superset -i https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure>
+<p>如果是windows，下面的操作都必须在包的bin目录下进行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd yourPath&#x2F;python3.6&#x2F;site-packages&#x2F;superset&#x2F;bin</span><br></pre></td></tr></table></figure>
+<p>命令前面加上python，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python superset init</span><br></pre></td></tr></table></figure>
+<p>如果windows在安装Python-geohash出现如下报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Running setup.py bdist_wheel for python-geohash ... error</span><br></pre></td></tr></table></figure>
+<p>请到<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">这里</a>下载相应的安装包，如果是Python3.7，则文件名为python_geohash‑0.8.5‑cp37‑cp37m‑win_amd64.whl<br>然后进入文件目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python_geohash‑0.8.5‑cp37‑cp37m‑win_amd64.whl</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-初始化数据库"><a href="#2-初始化数据库" class="headerlink" title="2. 初始化数据库"></a>2. 初始化数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">superset db upgrade</span><br></pre></td></tr></table></figure>
+<p>如果是windows，出现如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError: cannot import name &#39;ImmutableDict&#39; from &#39;werkzeug&#39;</span><br></pre></td></tr></table></figure>
+<p>请将werkzeug升级到0.15以上</p>
+<h3 id="3-创建管理员用户"><a href="#3-创建管理员用户" class="headerlink" title="3. 创建管理员用户"></a>3. 创建管理员用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fabmanager create-admin --app superset</span><br><span class="line">#按提示输入</span><br><span class="line">#用户名:admin</span><br><span class="line">#姓:admin</span><br><span class="line">#名:admin</span><br><span class="line">#邮箱:admin@zjft.com</span><br><span class="line">#密码:admin</span><br><span class="line">#确认密码:admin</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-导入样例数据-可跳过"><a href="#4-导入样例数据-可跳过" class="headerlink" title="4. 导入样例数据(可跳过)"></a>4. 导入样例数据(可跳过)</h3><p>导入世界卫生组织的样例数据（下载失败，貌似要翻墙）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">superset load_examples</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-系统初始化"><a href="#5-系统初始化" class="headerlink" title="5. 系统初始化"></a>5. 系统初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">superset init</span><br></pre></td></tr></table></figure>
+<h3 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6. 启动服务"></a>6. 启动服务</h3><p>superset启动的命令为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">superset run -h host -p port</span><br></pre></td></tr></table></figure>
+<p>其中host为superset的IP地址，port为端口号<br>Linux:<br>需要开放相关端口，默认是8080</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport  8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>如果开启了防火墙，要打开防火墙的8080端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone&#x3D;public --add-port&#x3D;8080&#x2F;tcp –permanent</span><br><span class="line">firewall-cmd –reload</span><br></pre></td></tr></table></figure>
+<p>查看防火墙的8080端口是否开启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port&#x3D;8080&#x2F;tcp</span><br></pre></td></tr></table></figure>
+<p>启动superset后台服务,-h 0.0.0.0(可供局域网访问),-p 端口并把日志写入superset.log文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup superset run -h 0.0.0.0 -p 8080 --with-threads --reload --debugger</span><br><span class="line">&gt;superset.log &amp;</span><br></pre></td></tr></table></figure>
+<p>Windows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python superset run -h 0.0.0.0 -p 8080 --with-threads --reload --debugger</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>浏览器访问<a href="http://IP:8080/" target="_blank" rel="noopener">http://IP:8080/</a></li>
+</ol>
+<h1 id="SuperSet配置数据源"><a href="#SuperSet配置数据源" class="headerlink" title="SuperSet配置数据源"></a>SuperSet配置数据源</h1><ol>
+<li>服务器需要安装好你所使用的数据库和相关驱动<table>
+<thead>
+<tr>
+<th>database</th>
+<th>pypi package</th>
+<th>SQLAlchemy URI prefix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Amazon Athena</td>
+<td>pip install “PyAthenaJDBC&gt;1.0.9”</td>
+<td>awsathena+jdbc://</td>
+</tr>
+<tr>
+<td>Amazon Athena</td>
+<td>pip install “PyAthena&gt;1.2.0”</td>
+<td>awsathena+rest://</td>
+</tr>
+<tr>
+<td>Amazon Redshift</td>
+<td>pip install sqlalchemy-redshift</td>
+<td>redshift+psycopg2://</td>
+</tr>
+<tr>
+<td>Apache Drill</td>
+<td>pip install sqlalchemy-drill</td>
+<td>For the REST API:`` drill+sadrill:// For JDBC drill+jdbc://</td>
+</tr>
+<tr>
+<td>Apache Druid</td>
+<td>pip install pydruid</td>
+<td>druid://</td>
+</tr>
+<tr>
+<td>Apache Hive</td>
+<td>pip install pyhive</td>
+<td>hive://</td>
+</tr>
+<tr>
+<td>Apache Impala</td>
+<td>pip install impyla</td>
+<td>impala://</td>
+</tr>
+<tr>
+<td>Apache Kylin</td>
+<td>pip install kylinpy</td>
+<td>kylin://</td>
+</tr>
+<tr>
+<td>Apache Pinot</td>
+<td>pip install pinotdb</td>
+<td>pinot+<a href="http://CONTROLLER:5436/" target="_blank" rel="noopener">http://CONTROLLER:5436/</a> query?server=<a href="http://CONTROLLER:5983/" target="_blank" rel="noopener">http://CONTROLLER:5983/</a></td>
+</tr>
+<tr>
+<td>Apache Spark SQL</td>
+<td>pip install pyhive</td>
+<td>jdbc+hive://</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>pip install pybigquery</td>
+<td>bigquery://</td>
+</tr>
+<tr>
+<td>ClickHouse</td>
+<td>pip install sqlalchemy-clickhouse</td>
+<td></td>
+</tr>
+<tr>
+<td>Elasticsearch</td>
+<td>pip install elasticsearch-dbapi</td>
+<td>elasticsearch+http://</td>
+</tr>
+<tr>
+<td>Exasol</td>
+<td>pip install sqlalchemy-exasol</td>
+<td>exa+pyodbc://</td>
+</tr>
+<tr>
+<td>Google Sheets</td>
+<td>pip install gsheetsdb</td>
+<td>gsheets://</td>
+</tr>
+<tr>
+<td>IBM Db2</td>
+<td>pip install ibm_db_sa</td>
+<td>db2+ibm_db://</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>pip install mysqlclient</td>
+<td>mysql://</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>pip install cx_Oracle</td>
+<td>oracle://</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>pip install psycopg2</td>
+<td>postgresql+psycopg2://</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>pip install pyhive</td>
+<td>presto://</td>
+</tr>
+<tr>
+<td>Snowflake</td>
+<td>pip install snowflake-sqlalchemy</td>
+<td>snowflake://</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td></td>
+<td>sqlite://</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>pip install pymssql</td>
+<td>mssql://</td>
+</tr>
+<tr>
+<td>Teradata</td>
+<td>pip install sqlalchemy-teradata</td>
+<td>teradata://</td>
+</tr>
+<tr>
+<td>Vertica</td>
+<td>pip install sqlalchemy-vertica-python</td>
+<td>vertica+vertica_python://</td>
+</tr>
+<tr>
+<td>Hana</td>
+<td>pip install hdbcli sqlalchemy-hana or pip install superset[hana]</td>
+<td>hana://</td>
+</tr>
+</tbody></table>
+</li>
+<li>进入首页,输入配置好的用户名，密码<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/1.png" alt="superset1"></li>
+<li>进入数据源<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/2.png" alt="superset2"></li>
+<li>增加数据源<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/3.png" alt="增加数据源"></li>
+<li>配置数据源<br>以druid的mysql数据库为例，填好数据库名和数据库的URI(SQLAlchemy URI)。点击Test Connetion 测试数据库是否可用，没问题就点击保存<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/4.png" alt="增加数据源"></li>
+<li>创建成功<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/5.png" alt="创建成功"></li>
+</ol>
+<h1 id="SuperSet使用Druid"><a href="#SuperSet使用Druid" class="headerlink" title="SuperSet使用Druid"></a>SuperSet使用Druid</h1><ol>
+<li>服务器需要安装Druid的python包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pydruid</span><br></pre></td></tr></table></figure></li>
+<li>创建Druid集群<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/6.png" alt="Druid集群"></li>
+<li>新建一个Druid集群<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/7.png" alt="Druid集群"></li>
+<li>填入集群的配置信息, Cluster选项可以随意填，点击保存<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/8.png" alt="Druid集群"></li>
+<li>打开Druid集群管理页面，刚创建的集群的元数据是为None。<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/9.png" alt="Druid集群"></li>
+<li>手动刷新Druid的元数据<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/10.png" alt="Druid集群"></li>
+<li>刷新成功后会自动创建一个Druid Datasources（数据源）。如果失败了则检查Druid的配置有没写错<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/11.png" alt="Druid集群"></li>
+<li>返回Druid cluster页面<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/12.png" alt="Druid集群"></li>
+<li>元数据已经刷新<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/13.png" alt="Druid集群"></li>
+</ol>
+<h1 id="SuperSet生成图表"><a href="#SuperSet生成图表" class="headerlink" title="SuperSet生成图表"></a>SuperSet生成图表</h1><ol>
+<li>新建一个图表<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/14.png" alt="生成图表"></li>
+<li>选择刚才创建好的Druid数据源，默认是选择table，你也可以选择其他的图表，点击创建<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/15.png" alt="生成图表"></li>
+<li>之后会自动跳转到编辑界面<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/16.png" alt="生成图表"></li>
+<li>完成后点击save，这里可以选择是否添加到仪表盘，这里选择保存并转到仪表盘<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/17.png" alt="生成图表"></li>
+<li>进入仪表盘<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/18.png" alt="生成图表"></li>
+<li>可以看见新创建的图表了<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/19.png" alt="生成图表"></li>
+</ol>
+<h1 id="SuperSet-API"><a href="#SuperSet-API" class="headerlink" title="SuperSet API"></a>SuperSet API</h1><h2 id="API参数总览"><a href="#API参数总览" class="headerlink" title="API参数总览"></a>API参数总览</h2><table>
+<thead>
+<tr>
+<th align="center">parameter name</th>
+<th align="center">description</th>
+<th align="center">type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">datasource</td>
+<td align="center">数据源</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">viz_type</td>
+<td align="center">图表类型</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">granularity_sqla</td>
+<td align="center">时间字段</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">time_grain_sqla</td>
+<td align="center">时间粒度</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">time_range</td>
+<td align="center">时间范围</td>
+<td align="center">datetime</td>
+</tr>
+<tr>
+<td align="center">entity</td>
+<td align="center">实体，每个图表类型这个值不一样</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">country_fieldtype</td>
+<td align="center">国家字段类型（地图图表特有参数）</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">adhoc_filters</td>
+<td align="center">筛选字段</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">show_bubbles</td>
+<td align="center">是否在地图展示数量大于max_bubble_size的国家</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">max_bubble_size</td>
+<td align="center"></td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">standalone</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">图表高度</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">图表宽度</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">aggregate</td>
+<td align="center">统计方法</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:column_name</td>
+<td align="center">数据源的字段名</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:description</td>
+<td align="center">数据源的描述</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:expression</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">column:filterable</td>
+<td align="center">是否启用过滤</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:groupby</td>
+<td align="center">是否启用分组</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:id</td>
+<td align="center">数据源字段ID</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">column:is_dttm</td>
+<td align="center"></td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">column:optionName</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:python_date_format</td>
+<td align="center">python时间格式</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:type</td>
+<td align="center">字段类型</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">column:verbose_name</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">expressionType</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">fromFormData</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">hasCustomLabel</td>
+<td align="center">是否使用自定义标题</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">label</td>
+<td align="center">数据标题</td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">optionName</td>
+<td align="center"></td>
+<td align="center">string</td>
+</tr>
+<tr>
+<td align="center">sqlExpression</td>
+<td align="center">查询有效期</td>
+<td align="center">string</td>
+</tr>
+</tbody></table>
+<h2 id="Chart-API"><a href="#Chart-API" class="headerlink" title="Chart API"></a>Chart API</h2><ul>
+<li>URL: /superset/explore/</li>
+<li>parameter: form_data</li>
+<li>method:  GET</li>
+</ul>
+<ol>
+<li>引用生成好的图表(以地图为例)<br>打开已经创建好的图表，点击右上角的&lt;&gt;按钮,把html放到自己的项目就可以了，适用于固定参数图表<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/20.png" alt="API"></li>
+<li>通过API获取，适用于动态参数图表<br>其中form_data后面是图表的参数<br>上面API转译过来就是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;10.34.11.179:8080&#x2F;superset&#x2F;explore&#x2F;?</span><br><span class="line">form_data&#x3D;&#123;</span><br><span class="line">	&quot;datasource&quot;: &quot;3__table&quot;,</span><br><span class="line">	&quot;viz_type&quot;: &quot;world_map&quot;,</span><br><span class="line">	&quot;slice_id&quot;: 57,</span><br><span class="line">	&quot;url_params&quot;: &#123;&#125;,</span><br><span class="line">	&quot;granularity_sqla&quot;: &quot;last_update_at&quot;,</span><br><span class="line">	&quot;time_grain_sqla&quot;: null,</span><br><span class="line">	&quot;time_range&quot;: &quot;2010-01-01T00:00:00+:+2020-01-16T00:00:00&quot;,</span><br><span class="line">	&quot;entity&quot;: &quot;country&quot;,</span><br><span class="line">	&quot;country_fieldtype&quot;: &quot;name&quot;,</span><br><span class="line">	&quot;metric&quot;: &#123;</span><br><span class="line">		&quot;aggregate&quot;: &quot;COUNT_DISTINCT&quot;,</span><br><span class="line">		&quot;column&quot;: &#123;</span><br><span class="line">			&quot;column_name&quot;: &quot;hostname&quot;,</span><br><span class="line">			&quot;description&quot;: null,</span><br><span class="line">			&quot;expression&quot;: null,</span><br><span class="line">			&quot;filterable&quot;: true,</span><br><span class="line">			&quot;groupby&quot;: true,</span><br><span class="line">			&quot;id&quot;: 7,</span><br><span class="line">			&quot;is_dttm&quot;: false,</span><br><span class="line">			&quot;optionName&quot;: &quot;_col_hostname&quot;,</span><br><span class="line">			&quot;python_date_format&quot;: null,</span><br><span class="line">			&quot;type&quot;: &quot;VARCHAR(300)&quot;,</span><br><span class="line">			&quot;verbose_name&quot;: null</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;expressionType&quot;: &quot;SIMPLE&quot;,</span><br><span class="line">		&quot;fromFormData&quot;: false,</span><br><span class="line">		&quot;hasCustomLabel&quot;: false,</span><br><span class="line">		&quot;label&quot;: &quot;COUNT_DISTINCT(hostname)&quot;,</span><br><span class="line">		&quot;optionName&quot;: &quot;metric_kjwkqwqukjd_5o8d3equvv5&quot;,</span><br><span class="line">		&quot;sqlExpression&quot;: null</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;adhoc_filters&quot;: [],</span><br><span class="line">	&quot;row_limit&quot;: 10000,</span><br><span class="line">	&quot;show_bubbles&quot;: true,</span><br><span class="line">	&quot;secondary_metric&quot;: &#123;</span><br><span class="line">		&quot;aggregate&quot;: &quot;COUNT_DISTINCT&quot;,</span><br><span class="line">		&quot;column&quot;: &#123;</span><br><span class="line">			&quot;column_name&quot;: &quot;hostname&quot;,</span><br><span class="line">			&quot;description&quot;: null,</span><br><span class="line">			&quot;expression&quot;: null,</span><br><span class="line">			&quot;filterable&quot;: true,</span><br><span class="line">			&quot;groupby&quot;: true,</span><br><span class="line">			&quot;id&quot;: 7,</span><br><span class="line">			&quot;is_dttm&quot;: false,</span><br><span class="line">			&quot;optionName&quot;: &quot;_col_hostname&quot;,</span><br><span class="line">			&quot;python_date_format&quot;: null,</span><br><span class="line">			&quot;type&quot;: &quot;VARCHAR(300)&quot;,</span><br><span class="line">			&quot;verbose_name&quot;: null</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;expressionType&quot;: &quot;SIMPLE&quot;,</span><br><span class="line">		&quot;fromFormData&quot;: false,</span><br><span class="line">		&quot;hasCustomLabel&quot;: false,</span><br><span class="line">		&quot;label&quot;: &quot;COUNT_DISTINCT(hostname)&quot;,</span><br><span class="line">		&quot;optionName&quot;: &quot;metric_n3idgryyr4a_hzn2nydg3gw&quot;,</span><br><span class="line">		&quot;sqlExpression&quot;: null</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;max_bubble_size&quot;: &quot;35&quot;</span><br><span class="line">&#125; &amp; standalone &#x3D; true &amp; height &#x3D; 400</span><br></pre></td></tr></table></figure>
+也可以在图表中获取<br><img src="/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/21.png" alt="配置好的用户名，密码"></li>
+</ol>
+<h2 id="Data-API"><a href="#Data-API" class="headerlink" title="Data API"></a>Data API</h2><p>依靠的sql lab模块的接口</p>
+<ul>
+<li>URL: superset/sql_json/</li>
+<li>method:  POST<br>请求参数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;client_id: &quot;o5HDMW18&quot;, database_id: 2, json: true, runAsync: false,…&#125;</span><br><span class="line">client_id: &quot;o5HDMW18&quot;</span><br><span class="line">database_id: 2</span><br><span class="line">json: true</span><br><span class="line">runAsync: false</span><br><span class="line">sql: &quot;SELECT &quot;ID&quot;,↵ &quot;UserId&quot;,↵ &quot;Content&quot;,&quot;CreateTime&quot;, &quot;Active&quot;,&quot;AppId&quot;, </span><br><span class="line">&quot;Recommend&quot;,&quot;Like&quot;,&quot;UnLike&quot;,&quot;Funny&quot;,&quot;Label&quot;,&quot;Rate&quot; </span><br><span class="line">FROM business.game_evaluation LIMIT 100&quot;</span><br><span class="line">sql_editor_id: null</span><br><span class="line">tab: &quot;&quot;</span><br><span class="line">select_as_cta: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+返回结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;query_id: 28, status: &quot;success&quot;,…&#125;</span><br><span class="line">query_id: 28</span><br><span class="line">status: &quot;success&quot;</span><br><span class="line">data: [&#123;ID: 4, MarkId: 5, UserId: 34, Active: false,</span><br><span class="line">CreateTime: &quot;2020-01-09T14:06:42.352546+08:00&quot;&#125;,…]</span><br><span class="line">columns: [&#123;name: &quot;ID&quot;, agg: &quot;sum&quot;, type: null, is_date: false, is_dim: false&#125;,…]</span><br><span class="line">selected_columns: [&#123;name: &quot;ID&quot;, agg: &quot;sum&quot;, type: null,</span><br><span class="line"> is_date: false, is_dim: false&#125;,…]</span><br><span class="line">expanded_columns: []</span><br><span class="line">query: &#123;changedOn: &quot;2020-02-11T17:22:09.128505&quot;, changed_on:</span><br><span class="line"> &quot;2020-02-11T17:22:09.128505&quot;, dbId: 2, db: &quot;npc&quot;,…&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Lucas 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Superset/" rel="tag"><i class="fa fa-tag"></i> Superset</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/" rel="prev" title="Nodejs在各环境下安装步骤">
+      <i class="fa fa-chevron-left"></i> Nodejs在各环境下安装步骤
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" rel="next" title="Superset-二次开发指南">
+      Superset-二次开发指南 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件依赖"><span class="nav-number">2.</span> <span class="nav-text">软件依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验环境"><span class="nav-number">3.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是SuperSet"><span class="nav-number">4.</span> <span class="nav-text">什么是SuperSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SuperSet安装"><span class="nav-number">5.</span> <span class="nav-text">SuperSet安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Python3虚拟环境"><span class="nav-number">5.1.</span> <span class="nav-text">创建Python3虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖"><span class="nav-number">5.2.</span> <span class="nav-text">安装依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debian和Ubuntu"><span class="nav-number">5.2.1.</span> <span class="nav-text">Debian和Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他linux系统"><span class="nav-number">5.2.2.</span> <span class="nav-text">其他linux系统:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac"><span class="nav-number">5.2.3.</span> <span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-number">5.2.4.</span> <span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始安装"><span class="nav-number">5.3.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装superset"><span class="nav-number">5.3.1.</span> <span class="nav-text">1. 安装superset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-初始化数据库"><span class="nav-number">5.3.2.</span> <span class="nav-text">2. 初始化数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建管理员用户"><span class="nav-number">5.3.3.</span> <span class="nav-text">3. 创建管理员用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-导入样例数据-可跳过"><span class="nav-number">5.3.4.</span> <span class="nav-text">4. 导入样例数据(可跳过)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-系统初始化"><span class="nav-number">5.3.5.</span> <span class="nav-text">5. 系统初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-启动服务"><span class="nav-number">5.3.6.</span> <span class="nav-text">6. 启动服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SuperSet配置数据源"><span class="nav-number">6.</span> <span class="nav-text">SuperSet配置数据源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SuperSet使用Druid"><span class="nav-number">7.</span> <span class="nav-text">SuperSet使用Druid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SuperSet生成图表"><span class="nav-number">8.</span> <span class="nav-text">SuperSet生成图表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SuperSet-API"><span class="nav-number">9.</span> <span class="nav-text">SuperSet API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API参数总览"><span class="nav-number">9.1.</span> <span class="nav-text">API参数总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chart-API"><span class="nav-number">9.2.</span> <span class="nav-text">Chart API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-API"><span class="nav-number">9.3.</span> <span class="nav-text">Data API</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lucas"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Lucas</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/15015070064" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;15015070064" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lucas.15015070064@gmail.com" title="E-Mail → mailto:lucas.15015070064@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lucas</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">18k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">16 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+<canvas id="evanyou" width="1920" height="934" style="position:fixed;width:100%; height:100%;left:0;top:0;z-index:-1"></canvas>
+ <script type="text/javascript" src="/js/bgCanvas.js"></script>
+</body>
+</html>

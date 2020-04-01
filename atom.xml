@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lucas Home</title>
+  <icon>http://localhost:4000/icon.png</icon>
+  <subtitle>乱七八糟的地方藏着乱七八糟的梦</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://localhost:4000/"/>
+  <updated>2020-04-01T04:57:41.084Z</updated>
+  <id>http://localhost:4000/</id>
+  
+  <author>
+    <name>Lucas</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-Next7主题优化</title>
+    <link href="http://localhost:4000/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/"/>
+    <id>http://localhost:4000/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</id>
+    <published>2020-04-01T01:12:32.000Z</published>
+    <updated>2020-04-01T04:57:41.084Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2020/04/01/2020/Hexo-Next7%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://localhost:4000/categories/Web/"/>
+    
+    
+      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-安装和使用主题</title>
+    <link href="http://localhost:4000/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/"/>
+    <id>http://localhost:4000/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/</id>
+    <published>2020-03-31T16:16:12.000Z</published>
+    <updated>2020-04-01T04:32:34.999Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo快速搭建博客，并使用简约风格主题NexT&lt;br&gt;&lt;img src=&quot;/2020/04/01/2020/Hexo%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://localhost:4000/categories/Web/"/>
+    
+    
+      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Superset-二次开发指南</title>
+    <link href="http://localhost:4000/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/"/>
+    <id>http://localhost:4000/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/</id>
+    <published>2020-03-31T14:14:17.000Z</published>
+    <updated>2020-03-31T16:10:28.133Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Superset0.35二次开发指南，自定义登录，集成echarts，自定义页面，自定义权限&lt;br&gt;&lt;img src=&quot;/2020/03/31/2020/Superset%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Big Data" scheme="http://localhost:4000/categories/Big-Data/"/>
+    
+    
+      <category term="Superset" scheme="http://localhost:4000/tags/Superset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Superset-轻量级BI平台的使用</title>
+    <link href="http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://localhost:4000/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-03-31T13:26:02.000Z</published>
+    <updated>2020-03-31T16:11:22.403Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Superset-轻量级BI平台的使用: 配置数据源，新增图表，api….&lt;br&gt;&lt;img src=&quot;/2020/03/31/2020/Superset%E8%BD%BB%E9%87%8F%E7%BA%A7BI%E5%B9%B3%E5%8F%B0%E7%9A%84%E4%BD%BF%E7%94%A8/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Big Data" scheme="http://localhost:4000/categories/Big-Data/"/>
+    
+    
+      <category term="Superset" scheme="http://localhost:4000/tags/Superset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nodejs在各环境下安装步骤</title>
+    <link href="http://localhost:4000/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://localhost:4000/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/</id>
+    <published>2020-03-31T06:20:39.000Z</published>
+    <updated>2020-03-31T09:38:17.454Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Mark下nodejs每个环境安装方法&lt;br&gt;&lt;img src=&quot;/2020/03/31/2020/Nodejs%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/cover.png&quot; alt=&quot;nodejs首页&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="通用" scheme="http://localhost:4000/categories/%E9%80%9A%E7%94%A8/"/>
+    
+    
+      <category term="Nodejs" scheme="http://localhost:4000/tags/Nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pentaho-初识开源大数据平台</title>
+    <link href="http://localhost:4000/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    <id>http://localhost:4000/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/</id>
+    <published>2020-03-31T06:18:39.000Z</published>
+    <updated>2020-03-31T13:27:58.333Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2020/03/31/2020/Pentaho%E5%88%9D%E8%AF%86%E5%BC%80%E6%BA%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/1.jfif&quot; alt=&quot;pentaho&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Big Data" scheme="http://localhost:4000/categories/Big-Data/"/>
+    
+    
+      <category term="Pentaho" scheme="http://localhost:4000/tags/Pentaho/"/>
+    
+      <category term="Kettle" scheme="http://localhost:4000/tags/Kettle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python在各环境下安装步骤</title>
+    <link href="http://localhost:4000/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://localhost:4000/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/</id>
+    <published>2020-03-31T06:18:39.000Z</published>
+    <updated>2020-03-31T09:45:21.576Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;日常在不同系统下开发，经常要装不同系统下的python，记性也不好，Mark下每个环境安装方法&lt;br&gt;&lt;img src=&quot;/2020/03/31/2020/Python%E5%9C%A8%E5%90%84%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/cover.png&quot; alt=&quot;python首页&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="通用" scheme="http://localhost:4000/categories/%E9%80%9A%E7%94%A8/"/>
+    
+    
+      <category term="Python" scheme="http://localhost:4000/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Superset-打包分发与集群部署</title>
+    <link href="http://localhost:4000/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/"/>
+    <id>http://localhost:4000/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</id>
+    <published>2020-03-30T07:16:39.000Z</published>
+    <updated>2020-03-31T16:10:51.616Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;superset通常需要二次开发，文件介绍如何打包部署二次开发后的superset&lt;br&gt;&lt;img src=&quot;/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/cover.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Big Data" scheme="http://localhost:4000/categories/Big-Data/"/>
+    
+    
+      <category term="Superset" scheme="http://localhost:4000/tags/Superset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>起步,想写博客前必看</title>
+    <link href="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/"/>
+    <id>http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/</id>
+    <published>2020-03-30T06:16:39.000Z</published>
+    <updated>2020-03-31T16:12:31.633Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自建博客 OR 第三方博客平台? 博客入坑指南&lt;br&gt;&lt;img src=&quot;/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png&quot; alt=&quot;Huno&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://localhost:4000/categories/Web/"/>
+    
+    
+      <category term="Hexo" scheme="http://localhost:4000/tags/Hexo/"/>
+    
+      <category term="Jekyll" scheme="http://localhost:4000/tags/Jekyll/"/>
+    
+      <category term="WordPress" scheme="http://localhost:4000/tags/WordPress/"/>
+    
+  </entry>
+  
+</feed>

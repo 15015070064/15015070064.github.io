@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"localhost","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="自建博客 OR 第三方博客平台? 博客入坑指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="起步,想写博客前必看">
+<meta property="og:url" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/index.html">
+<meta property="og:site_name" content="Lucas Home">
+<meta property="og:description" content="自建博客 OR 第三方博客平台? 博客入坑指南">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/3.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/4.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/5.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/6.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/1.jpg">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/7.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/8.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/9.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/10.png">
+<meta property="og:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png">
+<meta property="article:published_time" content="2020-03-30T06:16:39.000Z">
+<meta property="article:modified_time" content="2020-03-31T16:12:31.633Z">
+<meta property="article:author" content="Lucas">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Jekyll">
+<meta property="article:tag" content="WordPress">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png">
+
+<link rel="canonical" href="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>起步,想写博客前必看 | Lucas Home</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Lucas Home" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Lucas Home</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">乱七八糟的地方藏着乱七八糟的梦</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/15015070064" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Lucas">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lucas Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          起步,想写博客前必看
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-30 14:16:39" itemprop="dateCreated datePublished" datetime="2020-03-30T14:16:39+08:00">2020-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-01 00:12:31" itemprop="dateModified" datetime="2020-04-01T00:12:31+08:00">2020-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>自建博客 OR 第三方博客平台? 博客入坑指南<br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png" alt="Huno"></p>
+<a id="more"></a>
+<h1 id="自建博客-OR-第三方博客平台"><a href="#自建博客-OR-第三方博客平台" class="headerlink" title="自建博客 OR 第三方博客平台"></a>自建博客 OR 第三方博客平台</h1><h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>如果你是只是想找一个平台保存自己的markdown的话,你可以直接使用三方平台<br>第三方博客平台</p>
+<ul>
+<li><a href="https://juejin.im/timeline" target="_blank" rel="noopener">掘金</a></li>
+<li><a href="https://www.oschina.net/" target="_blank" rel="noopener">开源中国</a></li>
+<li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎专栏</a></li>
+<li><a href="https://segmentfault.com/" target="_blank" rel="noopener">思否(SegmentFault)</a></li>
+<li><a href="https://blog.csdn.net/" target="_blank" rel="noopener">CSDN</a></li>
+<li><a href="https://www.cnblogs.com/" target="_blank" rel="noopener">博客园</a></li>
+<li><a href="https://www.jianshu.com/" target="_blank" rel="noopener">简书</a></li>
+<li><a href="https://www.imooc.com/" target="_blank" rel="noopener">慕课网手记</a></li>
+<li><a href="https://cloud.tencent.com/developer" target="_blank" rel="noopener">腾讯云社区</a></li>
+<li><a href="https://yq.aliyun.com/" target="_blank" rel="noopener">阿里云云栖社区</a></li>
+</ul>
+<p>优点:</p>
+<ul>
+<li>搭建成本低</li>
+<li>开箱即用</li>
+<li>无需维护</li>
+<li>seo搜索引擎友好</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>定制化程度低<br>但是博客平台的缺点就是定制化程度低,想打造有特色的博客很难</li>
+</ul>
+<h2 id="自建博客"><a href="#自建博客" class="headerlink" title="自建博客"></a>自建博客</h2><p>如果你不想千篇一律，想打造一个有特色的博客,那么你可以选择自建博客，但是自建博客会比第三方博客平台的成本高一点<br>优点:</p>
+<ul>
+<li>定制化程度高, 能打造有特色的博客</li>
+<li>能接入第三方服务,如广告,打赏,统计等等</li>
+<li>完全的控制权,这里是你的地盘</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>你需要具备一定编程基础</li>
+<li>时间与金钱成本都较高</li>
+</ul>
+<h1 id="三大流行博客"><a href="#三大流行博客" class="headerlink" title="三大流行博客"></a>三大流行博客</h1><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><blockquote>
+<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>是一个快速、简洁且高效的博客框架。<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<h3 id="Hexo优缺点"><a href="#Hexo优缺点" class="headerlink" title="Hexo优缺点"></a>Hexo优缺点</h3><p>优点：</p>
+<ul>
+<li>搭建的博客平台，速度快，免费，可以搭建在 Github 上。</li>
+<li>操作比 Jekyll 简单，命令少，易于记忆。 </li>
+<li>支持markdown，Hexo最终生成的是一个静态博客，这就意味着它拥有其他博客系统无法比拟的低负载与高速度的特性。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>每次在一台新电脑或者别人电脑首次使用时，都要重新安装和配置编译环境，不适合随时随地愉快的写博客。（不能优雅的装逼，略微不爽）</li>
+<li>相对Wordpress而言，没有强大的后台和插件支持，学习成本较高，需要一些网页基础。</li>
+</ul>
+<h3 id="Hexo主题浏览"><a href="#Hexo主题浏览" class="headerlink" title="Hexo主题浏览"></a>Hexo主题浏览</h3><blockquote>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">传送门:Hexo主题站</a></p>
+</blockquote>
+<h4 id="1-NexT"><a href="#1-NexT" class="headerlink" title="1. NexT"></a>1. <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">NexT</a></h4><blockquote>
+<p>本人最喜欢的主题,简约风格,提供了4种不同的布局,各具特色<br>Demo: <a href="https://muse.theme-next.org/" target="_blank" rel="noopener">Muse</a> <a href="https://mist.theme-next.org/" target="_blank" rel="noopener">mist</a> <a href="https://pisces.theme-next.org/" target="_blank" rel="noopener">Pisces</a> <a href="https://theme-next.org/" target="_blank" rel="noopener">Gemini</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/3.png" alt="NexT"></p>
+</blockquote>
+<h4 id="2-Yun"><a href="#2-Yun" class="headerlink" title="2. Yun"></a>2. <a href="https://yun.yunyoujun.cn/guide/#%E5%8D%87%E7%BA%A7%E4%B8%BB%E9%A2%98" target="_blank" rel="noopener">Yun</a></h4><blockquote>
+<p>这是个二次元主题, 浅色主题，内置后宫页面…….<br>Demo: <a href="https://www.yunyoujun.cn/" target="_blank" rel="noopener">Yun</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/4.png" alt="Yun"></p>
+</blockquote>
+<h4 id="3-Sakura"><a href="#3-Sakura" class="headerlink" title="3. Sakura"></a>3. <a href="https://docs.hojun.cn/sakura/docs/#/" target="_blank" rel="noopener">Sakura</a></h4><blockquote>
+<p>同二次元主题,首页大banner，页面动态效果好<br>Demo: <a href="https://sakura.wallleap.cn/" target="_blank" rel="noopener">wallleap</a> <a href="https://cndrew.cn/" target="_blank" rel="noopener">cndrew</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/5.png" alt="Sakura"></p>
+</blockquote>
+<h4 id="4-Huno"><a href="#4-Huno" class="headerlink" title="4. Huno"></a>4. <a href="https://github.com/letiantian/huno" target="_blank" rel="noopener">Huno</a></h4><blockquote>
+<p>干净的首页,Markdown别具一格<br>Demo: <a href="http://hi.letiantian.me/huno/" target="_blank" rel="noopener">Huno</a><br> <img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/6.png" alt="Huno"></p>
+</blockquote>
+<h4 id="5-Material"><a href="#5-Material" class="headerlink" title="5. Material"></a>5. <a href="https://github.com/bolnh/hexo-theme-material#demo-%E6%BC%94%E7%A4%BA" target="_blank" rel="noopener">Material</a></h4><blockquote>
+<p>优雅、纯粹、质感<br>Demo: <a href="https://liyin.date/" target="_blank" rel="noopener">Material</a><br> <img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/1.jpg" alt="Huno"></p>
+</blockquote>
+<h2 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h2><blockquote>
+<p><a href="http://jekyllcn.com/" target="_blank" rel="noopener">jekyll</a>是一个简单的免费的Blog生成工具，类似WordPress。但是和WordPress又有很大的不同，原因是jekyll只是一个生成静态网页的工具，不需要数据库支持。但是可以配合第三方服务,例如Disqus。最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。</p>
+</blockquote>
+<h3 id="Jekyll优缺点"><a href="#Jekyll优缺点" class="headerlink" title="Jekyll优缺点"></a>Jekyll优缺点</h3><p>优点：</p>
+<ul>
+<li>jekyll是一个静态文件生成器，网站不需要数据库，只要把自己的博客放到对应的目录即可。</li>
+<li>能部署到github或者gitcafe上，不需要自己的vps，因为是静态的，迁移起来非常方便。</li>
+<li>原生支持markdown。现在github默认支持jekyll, 所以原生的文件如果放到github上，它会自动帮你生成静态网站。</li>
+<li>相对hexo而言，可以直接在github网页版上编辑和发布博客，PC间切换和同步非常方便。（这点本人非常喜欢）</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>jekyll用的liquid语法确实不是对程序员友好的，。不过jekyll功能比hexo强大很多，有时间折腾的可以选它。</li>
+<li>相对Wordpress而言，没有强大的后台和插件支持，学习成本较高，需要一些网页基础。</li>
+</ul>
+<h3 id="Jekyll主题浏览"><a href="#Jekyll主题浏览" class="headerlink" title="Jekyll主题浏览"></a>Jekyll主题浏览</h3><blockquote>
+<p><a href="http://jekyllthemes.org/" target="_blank" rel="noopener">传送门:Jekyll主题站</a></p>
+</blockquote>
+<h4 id="1-Wu-Kan"><a href="#1-Wu-Kan" class="headerlink" title="1. Wu-Kan"></a>1. <a href="https://github.com/wu-kan/wu-kan.github.io" target="_blank" rel="noopener">Wu-Kan</a></h4><blockquote>
+<p>wukan大佬的主题,二次元风格,相信我,进去后你会爱上这个主题的<br>Demo: <a href="https://jekyll-theme-wuk.wu-kan.cn/#/2/1" target="_blank" rel="noopener">Wu-Kan</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/7.png" alt="Huno"></p>
+</blockquote>
+<h4 id="2-码志"><a href="#2-码志" class="headerlink" title="2. 码志"></a>2. <a href="https://github.com/mzlogin/mzlogin.github.io" target="_blank" rel="noopener">码志</a></h4><blockquote>
+<p>简约,极速,响应式<br>Demo: <a href="https://mazhuang.org/" target="_blank" rel="noopener">码志</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/8.png" alt="码志"></p>
+</blockquote>
+<h4 id="3-MDUI"><a href="#3-MDUI" class="headerlink" title="3. MDUI"></a>3. <a href="https://github.com/KeJunMao/jekyll-theme-mdui#demo" target="_blank" rel="noopener">MDUI</a></h4><blockquote>
+<p>界面比较可爱,色彩搭配也很棒<br>Demo: <a href="https://blog.kejun.me/" target="_blank" rel="noopener">MDUI</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/9.png" alt="码志"></p>
+</blockquote>
+<h2 id="WordPress"><a href="#WordPress" class="headerlink" title="WordPress"></a>WordPress</h2><blockquote>
+<p><a href="http://codex.wordpress.org.cn/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">WordPress</a>是一种使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。<br>用户可以在支持 PHP 和 MySQL数据库的服务器上使用自己的博客。<br>WordPress有许多第三方开发的免费模板，安装方式简单易用。不过要做一个自己的模板，则需要你有一定的专业知识。<br>比如你至少要懂的标准通用标记语言下的一个应用HTML代码、CSS、PHP等相关知识。</p>
+</blockquote>
+<h3 id="WordPress优缺点"><a href="#WordPress优缺点" class="headerlink" title="WordPress优缺点"></a>WordPress优缺点</h3><p>优点：</p>
+<ul>
+<li><p>安装简单方便，甚至很多虚拟主机供应商都提供了Wordpress的一键式安装工具。用户连上传文件的步骤都省了。</p>
+</li>
+<li><p>功能强大，可扩展性高，丰富的插件使用起来更加方便。</p>
+</li>
+<li><p>wordpress搭建的博客对seo搜索引擎友好，收录也快，排名靠前。</p>
+</li>
+<li><p>缺点：</p>
+</li>
+<li><p>对域名空间要求，wp需要自己购买虚拟主机，低配版大概两百多块。</p>
+</li>
+<li><p>迁移成本高，且插件装多了会变慢。</p>
+</li>
+<li><p>Wordpress对于中小型网站应该是不错的选择，但对于大型的门户网站，数据库、用户管理、内容的分类管理等方面的限制，还是会让Wordpress会有些力不从心的吧。</p>
+</li>
+</ul>
+<h3 id="WordPress主题浏览"><a href="#WordPress主题浏览" class="headerlink" title="WordPress主题浏览"></a>WordPress主题浏览</h3><blockquote>
+<p>其实WordPress没啥好说的了,因为模板太多了.<br><a href="https://www.iztwp.com/theme" target="_blank" rel="noopener">传送门:WordPress主题站</a></p>
+</blockquote>
+<h4 id="1-MDx"><a href="#1-MDx" class="headerlink" title="1. MDx"></a>1. <a href="http://www.2zzt.com/bokezhuti/9002.html" target="_blank" rel="noopener">MDx</a></h4><blockquote>
+<p>多种主题颜色与样式，夜间模式，卡片风格<br>Demo: <a href="http://www.2zzt.com/dome.php?id=9002" target="_blank" rel="noopener">MDx</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/10.png" alt="Huno"></p>
+</blockquote>
+<h4 id="2-Kratos"><a href="#2-Kratos" class="headerlink" title="2. Kratos"></a>2. <a href="http://www.2zzt.com/bokezhuti/9225.html" target="_blank" rel="noopener">Kratos</a></h4><blockquote>
+<p>多种主题颜色与样式，夜间模式，卡片风格<br>Demo: <a href="http://www.2zzt.com/dome.php?id=9225" target="_blank" rel="noopener">Kratos</a><br><img src="/2020/03/30/2020/%E8%B5%B7%E6%AD%A5,%E6%83%B3%E5%86%99%E5%8D%9A%E5%AE%A2%E5%89%8D%E5%BF%85%E7%9C%8B/11.png" alt="Huno"></p>
+</blockquote>
+<h1 id="如何选择合适的博客框架"><a href="#如何选择合适的博客框架" class="headerlink" title="如何选择合适的博客框架"></a>如何选择合适的博客框架</h1><p>当你选择自建博客后，接下来就是选择合适的博客框架,下面是以上博客框架对比</p>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>编程语言</th>
+<th>主题数量</th>
+<th>开发难度</th>
+<th>是否需要服务器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hexo</td>
+<td>node.js</td>
+<td>较少</td>
+<td>中等</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>Jekyll</td>
+<td>ruby</td>
+<td>多</td>
+<td>较难</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>WordPress</td>
+<td>PHP</td>
+<td>很多</td>
+<td>容易</td>
+<td>需要</td>
+</tr>
+</tbody></table>
+<p>大家可以根据自己的情况来选择适合框架，下面是送给选择困难症小伙伴的几种方法</p>
+<ol>
+<li>省事流: 根据本身技能选择,如果你本身就会PHP那么你大可以选择WP, 这样能节省不少时间</li>
+<li>省钱流: 如果你不想花费任何成本来购买服务器或者域名, 那么你可以选择Hexo或者Jekyll</li>
+<li>任性流; 在选择前你可以去看看每个框架有哪些主题，选择你喜欢的主题的框架。</li>
+</ol>
+
+    </div>
+
+    
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Lucas 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/Jekyll/" rel="tag"><i class="fa fa-tag"></i> Jekyll</a>
+              <a href="/tags/WordPress/" rel="tag"><i class="fa fa-tag"></i> WordPress</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/30/2020/Superset%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91%E4%B8%8E%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" rel="next" title="Superset-打包分发与集群部署">
+      Superset-打包分发与集群部署 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自建博客-OR-第三方博客平台"><span class="nav-number">1.</span> <span class="nav-text">自建博客 OR 第三方博客平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客平台"><span class="nav-number">1.1.</span> <span class="nav-text">博客平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建博客"><span class="nav-number">1.2.</span> <span class="nav-text">自建博客</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三大流行博客"><span class="nav-number">2.</span> <span class="nav-text">三大流行博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo优缺点"><span class="nav-number">2.1.1.</span> <span class="nav-text">Hexo优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo主题浏览"><span class="nav-number">2.1.2.</span> <span class="nav-text">Hexo主题浏览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-NexT"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1. NexT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Yun"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">2. Yun</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Sakura"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">3. Sakura</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Huno"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">4. Huno</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Material"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">5. Material</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jekyll"><span class="nav-number">2.2.</span> <span class="nav-text">Jekyll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jekyll优缺点"><span class="nav-number">2.2.1.</span> <span class="nav-text">Jekyll优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jekyll主题浏览"><span class="nav-number">2.2.2.</span> <span class="nav-text">Jekyll主题浏览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Wu-Kan"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">1. Wu-Kan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-码志"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">2. 码志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-MDUI"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">3. MDUI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress"><span class="nav-number">2.3.</span> <span class="nav-text">WordPress</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress优缺点"><span class="nav-number">2.3.1.</span> <span class="nav-text">WordPress优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress主题浏览"><span class="nav-number">2.3.2.</span> <span class="nav-text">WordPress主题浏览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-MDx"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">1. MDx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Kratos"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">2. Kratos</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何选择合适的博客框架"><span class="nav-number">3.</span> <span class="nav-text">如何选择合适的博客框架</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lucas"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Lucas</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/15015070064" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;15015070064" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lucas.15015070064@gmail.com" title="E-Mail → mailto:lucas.15015070064@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lucas</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">18k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">16 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+<canvas id="evanyou" width="1920" height="934" style="position:fixed;width:100%; height:100%;left:0;top:0;z-index:-1"></canvas>
+ <script type="text/javascript" src="/js/bgCanvas.js"></script>
+</body>
+</html>
